@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 
-import SideBarCard from "../../../components/SideBarCard";
+import SideBarCard from "../../../components/SideBar/Card";
 
 class Github extends Component {
     render() {
