@@ -1,0 +1,12 @@
+.Github {
+  &__wrapper {
+    overflow-x: auto;
+    &::-webkit-scrollbar {
+      display: none !important; // 윈도우 크롬 등
+    }
+  }
+
+  &__scroll {
+    width: 200%;
+  }
+}
