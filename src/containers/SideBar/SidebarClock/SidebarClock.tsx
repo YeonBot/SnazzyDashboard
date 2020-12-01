@@ -43,7 +43,7 @@ class SidebarClock extends Component {
                 months: now.getMonth() + 1,
                 dates: now.getDate(),
                 dayOfWeek: now.getDay(),
-                hours:now.getHours(),
+                hours:now.getHours() === 0 ? 24 : now.getHours(),
                 minutes: now.getMinutes(),
             })
         }

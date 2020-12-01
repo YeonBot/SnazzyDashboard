@@ -1,4 +1,14 @@
 .Card {
   border-radius: 10px;
-  padding: .25rem;
+  &__header {
+    background-color: #d3d3d3;
+    border-radius: 10px 10px 0 0;
+    padding: .25rem;
+  }
+
+  &__body {
+    background-color: #a0a0a0;
+    border-radius: 0 0 10px 10px;
+    padding: .25rem;
+  }
 }
