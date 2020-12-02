@@ -1,0 +1,13 @@
+.Directory {
+  width: 5rem;
+  height: 5rem;
+  margin-right: 5rem;
+  border-radius: 10px;
+  background-color: #a0a0a0;
+
+  &__title {
+    width:5rem;
+    text-align-last: center;
+    height: 5rem;
+  }
+}

@@ -9,21 +9,12 @@ class Github extends Component {
 
     componentDidMount() {
         let scrollDiv:HTMLElement|null = window.document.getElementById('scroll');
-        // scrollDiv.scrollLeft = scrollDiv.width;
         if(scrollDiv){
             scrollDiv.scrollLeft = scrollDiv.scrollWidth;
-            console.log(scrollDiv.scrollWidth);
         }
     }
 
     render() {
-
-        let scrollDiv:HTMLElement|null = window.document.getElementById('scroll');
-        // scrollDiv.scrollLeft = scrollDiv.width;
-        if(scrollDiv){
-            scrollDiv.scrollLeft = scrollDiv.scrollWidth;
-            console.log(scrollDiv.scrollWidth);
-        }
 
         return (
             <SideBarCard>
