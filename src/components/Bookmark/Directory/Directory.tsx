@@ -1,5 +1,7 @@
 import React from 'react';
 
+import {getFaviconUrlFromDomain} from '../../../utils/favicon';
+
 import style from './Directory.module.scss';
 
 type Props = {
@@ -7,16 +9,20 @@ type Props = {
     innerDir: Array<any>,
 }
 
-function Directory({title,innerDir}: Props) {
+function Directory({title, innerDir}: Props) {
 
-    console.log(innerDir);
+    // console.log(innerDir);
 
     return (
         <span>
             <div className={style.Directory}>
-                {innerDir.map((dir)=>(
-                    <img src={`chrome://favicon/${dir.url}`}/>
-                ))}
+                {innerDir.filter((dir, idx)=>{
+                    return idx < 16;
+                }).map(async (dir) => {
+                        const src = await getFaviconUrlFromDomain(dir.url);
+                        return (<img src={src}/>)
+                    }
+                )}
             </div>
             <div className={style.Directory__title}>
             {title}
