@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 
 import {getFaviconUrlFromDomain} from '../../../utils/favicon';
 
@@ -11,17 +11,33 @@ type Props = {
 
 function Directory({title, innerDir}: Props) {
 
-    // console.log(innerDir);
+    const [srcList, setSrcList] = useState<string[]>([]);
+
+    useEffect(() => {
+            const getSrcPromises = innerDir.filter((dir, idx) => {
+                return idx < 16;
+            }).map((dir) => {
+                if(dir.url){
+                    return getFaviconUrlFromDomain(dir.url);
+                }
+                // return directory image ..
+                return '/images/macGenericFolderIcon.png';
+            });
+
+            Promise.all(getSrcPromises)
+                .then((srcRet: string[]) => {
+                    setSrcList(srcRet);
+                })
+                .catch((err) => {
+                    console.log(err);
+                })
+        }, [])
 
     return (
         <span>
             <div className={style.Directory}>
-                {innerDir.filter((dir, idx)=>{
-                    return idx < 16;
-                }).map(async (dir) => {
-                        const src = await getFaviconUrlFromDomain(dir.url);
-                        return (<img src={src}/>)
-                    }
+                {srcList.map((src, idx) =>
+                    <img key={`${src}_${idx}`} className={style.Directory__src} src={src}/>
                 )}
             </div>
             <div className={style.Directory__title}>

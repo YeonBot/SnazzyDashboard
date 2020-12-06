@@ -4,31 +4,43 @@ const FAVICON_URL: string = "FAVICON_URL";
 
 export const getFaviconUrlFromDomain = async (domain: string) => {
 
-    const faviconObject = JSON.parse(localStorage.getItem(FAVICON_URL) || '{}');
+    const url = new URL(domain);
+    const originUrl = url.origin;
 
-    if (!faviconObject[domain]) {
-        const {data :{
-            icons = []
-        }} = await axios.get(`https://favicon.run.goorm.io/allicons.json?url=${domain}`);
+    try {
+        const faviconObject = JSON.parse(localStorage.getItem(FAVICON_URL) || '{}');
 
-        let maxHeight:number = 0;
-        let tempUrl: string = '';
+        if (!faviconObject[originUrl]) {
+            const {
+                data: {
+                    icons = [],
+                    error
+                }
+            } = await axios.get(`https://favicon.run.goorm.io/allicons.json?url=${originUrl}`);
 
-        icons.forEach((icon: {
-            height: number;
-            url: string;
-            error: any;
-        })=>{
-            if(!icon.error && icon.height > maxHeight){
-                maxHeight = icon.height;
-                tempUrl = icon.url
-            }
-        });
+            let maxHeight: number = 0;
+            let tempUrl: string = '/images/defaultSiteFIle.png';
 
-        faviconObject[domain] = tempUrl;
+            icons.forEach((icon: {
+                height: number;
+                url: string;
+                error: any;
+            }) => {
+                if (!icon.error && icon.height > maxHeight) {
+                    maxHeight = icon.height;
+                    tempUrl = icon.url
+                }
+            });
 
-        localStorage.setItem(FAVICON_URL, JSON.stringify(faviconObject));
+            faviconObject[originUrl] = tempUrl;
+
+            localStorage.setItem(FAVICON_URL, JSON.stringify(faviconObject));
+        }
+        return faviconObject[originUrl];
+    }catch(err){
+        //
+        return '/images/defaultSiteFIle.png';
     }
 
-    return faviconObject[domain];
+
 }
