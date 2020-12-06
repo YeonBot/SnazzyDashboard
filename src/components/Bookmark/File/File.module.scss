@@ -1,0 +1,24 @@
+.File {
+  margin-right: 5rem;
+  border-radius: 18px;
+  background-color: white;
+
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: start;
+
+  &__img {
+    width: 5rem;
+    height: 5rem;
+    border-radius: 18px;
+  }
+
+  &__title {
+    width: 5rem;
+    text-align-last: center;
+    height: 5rem;
+    font-size: .75rem;
+    color: white;
+  }
+}

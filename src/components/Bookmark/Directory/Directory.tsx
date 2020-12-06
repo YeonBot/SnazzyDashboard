@@ -5,43 +5,49 @@ import {getFaviconUrlFromDomain} from '../../../utils/favicon';
 import style from './Directory.module.scss';
 
 type Props = {
-    title: string,
-    innerDir: Array<any>,
+    title: string;
+    innerDir: Array<any>;
+    onClickDir: () => void;
 }
 
-function Directory({title, innerDir}: Props) {
+function Directory({title, innerDir, onClickDir}: Props) {
 
     const [srcList, setSrcList] = useState<string[]>([]);
 
     useEffect(() => {
-            const getSrcPromises = innerDir.filter((dir, idx) => {
-                return idx < 16;
-            }).map((dir) => {
-                if(dir.url){
-                    return getFaviconUrlFromDomain(dir.url);
-                }
-                // return directory image ..
-                return '/images/macGenericFolderIcon.png';
-            });
+        setInnerIconToDir();
+    }, []);
 
-            Promise.all(getSrcPromises)
-                .then((srcRet: string[]) => {
-                    setSrcList(srcRet);
-                })
-                .catch((err) => {
-                    console.log(err);
-                })
-        }, [])
+    const setInnerIconToDir = () => {
+        const getSrcPromises = innerDir.filter((dir, idx) => {
+            return idx < 16;
+        }).map((dir) => {
+            if (dir.url) {
+                return getFaviconUrlFromDomain(dir.url);
+            }
+            // return directory image ..
+            return '/images/macGenericFolderIcon.png';
+        });
+
+        Promise.all(getSrcPromises)
+            .then((srcRet: string[]) => {
+                setSrcList(srcRet);
+            })
+            .catch((err) => {
+                console.log(err);
+            })
+    }
 
     return (
-        <span>
+        <span onClick={onClickDir}>
             <div className={style.Directory}>
                 {srcList.map((src, idx) =>
                     <img key={`${src}_${idx}`} className={style.Directory__src} src={src}/>
                 )}
             </div>
+
             <div className={style.Directory__title}>
-            {title}
+                {title}
             </div>
         </span>
 
