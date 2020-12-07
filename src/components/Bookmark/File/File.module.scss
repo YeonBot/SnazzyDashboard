@@ -2,11 +2,10 @@
   margin-right: 5rem;
   border-radius: 18px;
   background-color: white;
-
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  align-content: start;
+  align-content: flex-start;
 
   &__img {
     width: 5rem;

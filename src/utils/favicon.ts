@@ -1,25 +1,23 @@
 import axios from 'axios';
 
 const FAVICON_URL: string = "FAVICON_URL";
-
+const DEFAULT_URL = '/images/defaultSiteFIle.png';
 export const getFaviconUrlFromDomain = async (domain: string) => {
 
     const url = new URL(domain);
     const originUrl = url.origin;
+    const faviconObject = JSON.parse(localStorage.getItem(FAVICON_URL) || '{}');
 
     try {
-        const faviconObject = JSON.parse(localStorage.getItem(FAVICON_URL) || '{}');
-
         if (!faviconObject[originUrl]) {
             const {
                 data: {
                     icons = [],
-                    error
                 }
             } = await axios.get(`https://favicon.run.goorm.io/allicons.json?url=${originUrl}`);
 
             let maxHeight: number = 0;
-            let tempUrl: string = '/images/defaultSiteFIle.png';
+            let tempUrl: string = DEFAULT_URL;
 
             icons.forEach((icon: {
                 height: number;
@@ -33,13 +31,15 @@ export const getFaviconUrlFromDomain = async (domain: string) => {
             });
 
             faviconObject[originUrl] = tempUrl;
-
             localStorage.setItem(FAVICON_URL, JSON.stringify(faviconObject));
         }
         return faviconObject[originUrl];
     }catch(err){
-        //
-        return '/images/defaultSiteFIle.png';
+        if(err.response.status === 404) {
+            faviconObject[originUrl] = DEFAULT_URL;
+            localStorage.setItem(FAVICON_URL, JSON.stringify(faviconObject));
+        }
+        return DEFAULT_URL;
     }
 
 

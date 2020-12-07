@@ -21,7 +21,7 @@ type Props = {
 function DirModal({isOpen,toggle, selectedBookmarkBar,onClickDir}:Props) {
 
     return (
-            <Modal isOpen={isOpen} toggle={toggle} centered={true} className={styles.DirModal}>
+            <Modal isOpen={isOpen} toggle={toggle} centered className={styles.DirModal}>
                 <ModalBody className={styles.DirModal__body}>
                     {selectedBookmarkBar.map((bookmark, idx) => {
                             return bookmark.url
