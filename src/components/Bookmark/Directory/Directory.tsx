@@ -5,12 +5,13 @@ import {getFaviconUrlFromDomain} from '../../../utils/favicon';
 import style from './Directory.module.scss';
 
 type Props = {
+    id: number,
     title: string;
     innerDir: Array<any>;
-    onClickDir: () => void;
+    onClickDir: (key:number) => void;
 }
 
-function Directory({title, innerDir, onClickDir}: Props) {
+function Directory({title, innerDir, onClickDir,id}: Props) {
 
     const [srcList, setSrcList] = useState<string[]>([]);
 
@@ -39,7 +40,7 @@ function Directory({title, innerDir, onClickDir}: Props) {
     }
 
     return (
-        <span onClick={onClickDir}>
+        <span onClick={()=> onClickDir(id)}>
             <div className={style.Directory}>
                 {srcList.map((src, idx) =>
                     <img key={`${src}_${idx}`} className={style.Directory__src} src={src}/>
