@@ -27,6 +27,8 @@
     }
     &__bottom {
       height:100%;
+      width: fit-content;
+      margin: auto;
       & > *:first-child {
         padding: 0;
       }

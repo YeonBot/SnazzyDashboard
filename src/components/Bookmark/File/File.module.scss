@@ -19,5 +19,12 @@
     height: 5rem;
     font-size: .75rem;
     color: white;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    word-break: keep-all;
+    text-align: -webkit-center;
+    overflow: hidden;
+    line-height: 1.3rem;
+    text-overflow: ellipsis;
   }
 }
