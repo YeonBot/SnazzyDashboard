@@ -32,6 +32,9 @@ class FavoriteCard extends Component {
                         />
                     ))
                 }
+                <File title="preferences"
+                      src="/images/preferences.png"
+                />
             </div>
         );
     }

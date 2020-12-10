@@ -6,10 +6,11 @@ import style from './File.module.scss';
 
 type Props = {
     title: string,
-    url: string,
+    url?: string,
+    src?: string,
 }
 
-function File({title, url}: Props) {
+function File({title, url, src}: Props) {
 
     const [imageSrc, setSrc] = useState<string>('');
 
@@ -18,14 +19,19 @@ function File({title, url}: Props) {
     }, []);
 
     const setFileSrc = () => {
-        getFaviconUrlFromDomain(url).then((src) => {
-            setSrc(src);
-        });
+        if (url) {
+            getFaviconUrlFromDomain(url).then((src) => {
+                setSrc(src);
+            });
+        }
+        if (src) {
+            setSrc(src)
+        }
     }
 
     return (
         <span>
-            <a className={style.File} href={url} target="_black" rel="noopener">
+            <a className={style.File} href={url || imageSrc} target="_black" rel="noopener">
                 <img className={style.File__img} src={imageSrc}/>
             </a>
             <div className={style.File__title}>

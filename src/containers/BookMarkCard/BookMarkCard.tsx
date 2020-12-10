@@ -61,7 +61,7 @@ class BookMarkCard extends Component {
                 return bookmarkBar[i].children;
                 break;
             } else if (Number(bookmarkBar[i].id) < id) {
-                return this.getDirById(bookmarkBar[i].children,id);
+                return this.getDirById(bookmarkBar[i].children, id);
             }
         }
     }
