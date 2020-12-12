@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
-import {Modal, ModalBody,CustomInput} from 'reactstrap';
+import {Modal, ModalBody, CustomInput} from 'reactstrap';
 import classNames from 'classnames/bind';
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome"
 
 
 import styles from './PreferenceModal.module.scss';
@@ -28,19 +28,20 @@ function PreferenceModal({isOpen, toggle}: Props) {
                         Object.keys(SIDEBAR.WIDGET).map((sidebarkey) => {
                             const ICON = SIDEBAR.WIDGET[sidebarkey as keyof typeof SIDEBAR.WIDGET].ICON;
                             return (
-                            <div key={sidebarkey}
-                                 className={cx('PreferenceModal__sidebar__item',
-                                     {"PreferenceModal__sidebar__item-selected": sidebarkey === selectedSideBarKey})
-                                 }>
-                                <div onClick={() => {
-                                    changeSideBarKey(sidebarkey)
-                                    changeComp(SIDEBAR.WIDGET[sidebarkey as keyof typeof SIDEBAR.WIDGET].COMP)
-                                }}>
-                                    <FontAwesomeIcon icon={ICON} size='lg'/>
-                                    {SIDEBAR.WIDGET[sidebarkey as keyof typeof SIDEBAR.WIDGET].LABEL}
+                                <div key={sidebarkey}
+                                     className={cx('PreferenceModal__sidebar__item',
+                                         {"PreferenceModal__sidebar__item-selected": sidebarkey === selectedSideBarKey})
+                                     }>
+                                    <div onClick={() => {
+                                        changeSideBarKey(sidebarkey)
+                                        changeComp(SIDEBAR.WIDGET[sidebarkey as keyof typeof SIDEBAR.WIDGET].COMP)
+                                    }}>
+                                        <FontAwesomeIcon icon={ICON} size='lg'/>
+                                        {SIDEBAR.WIDGET[sidebarkey as keyof typeof SIDEBAR.WIDGET].LABEL}
+                                    </div>
                                 </div>
-                            </div>
-                        )})
+                            )
+                        })
                     }
                     <span className={cx('PreferenceModal__sidebar__hr')}>
                         <hr/>
