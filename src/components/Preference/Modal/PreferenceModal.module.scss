@@ -6,6 +6,10 @@
     align-items: center;
   }
 
+  & svg {
+    margin-right: .5rem;
+  }
+
   &__body {
     width: 960px;
     height: 695px;
@@ -57,10 +61,32 @@
       align-items: center;
       padding: 5px 15px;
       font-weight: 600;
+      font-size: 14px;
 
       &-selected {
         background: rgb(71, 76, 80);
       }
+    }
+
+    &__hr {
+      width: 100%;
+      padding: 15px;
+      & > * {
+        height: 1px;
+        margin: 0;
+      }
+    }
+
+    &__darkmode {
+      user-select: none;
+      transition: background 20ms ease-in 0s;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 5px 15px;
+      font-weight: 600;
+      font-size: 14px;
     }
   }
 
