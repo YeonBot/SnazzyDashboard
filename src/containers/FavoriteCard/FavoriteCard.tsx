@@ -56,12 +56,13 @@ class FavoriteCard extends Component {
                     dummySite.map((dummy) => (
                         <File
                             key={dummy.title}
-                            title={dummy.title}
+                            // title={dummy.title}
                             url={dummy.url}
                         />
                     ))
                 }
-                <File title="preferences"
+                <File
+                    // title="preferences"
                       src="/images/preferences.png"
                       onClickFile={this.handleClickPreference}
                 />

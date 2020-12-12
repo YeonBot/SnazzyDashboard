@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { Container,Row,Col } from 'reactstrap';
+import {Container, Row, Col} from 'reactstrap';
 
 import SideBarBody from '../SideBar/SideBarBody';
 import BookMarkCard from '../../containers/BookMarkCard';
@@ -12,14 +12,12 @@ class Dashboard extends Component {
         return (
             <div className={style.Dashboard}>
                 <Container className={style.Dashboard__container}>
-                    <Row className={style.Dashboard__row}>
-                        <Col xs="6" sm="4">
+                    <div className={style.Dashboard__row}>
+                        <div className={style.Dashboard__row__sidebar}>
                             <SideBarBody/>
-                        </Col>
-                        <Col xs="12" sm="8">
-                            <BookMarkCard/>
-                        </Col>
-                    </Row>
+                        </div>
+                        <BookMarkCard/>
+                    </div>
                 </Container>
                 <Container className={style.Dashboard__container__bottom}>
                     <Row className={style.Dashboard__row__bottom}>

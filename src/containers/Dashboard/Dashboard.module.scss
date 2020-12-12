@@ -7,26 +7,26 @@
 
   &__container {
     padding:2.5rem 0;
-    height: 85%;
+    height: 90%;
     margin: auto;
 
     &__bottom {
       padding:0 0 2.5rem 0;
-      height: 15%;
       margin: auto;
     }
   }
 
   &__row {
     height:100%;
-    & > *:first-child {
-      padding: 0 2.5rem 2.5rem 0;
+    display: flex;
+    flex-direction: row;
+
+    &__sidebar {
+      width: 40rem;
+      padding-right: 5rem;
     }
-    & > *:last-child {
-      padding: 0 0 2.5rem 2.5rem;
-    }
+
     &__bottom {
-      height:100%;
       width: fit-content;
       margin: auto;
       & > *:first-child {

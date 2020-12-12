@@ -5,7 +5,7 @@ import {getFaviconUrlFromDomain} from '../../../utils/favicon';
 import style from './File.module.scss';
 
 type Props = {
-    title: string,
+    title?: string,
     url?: string,
     src?: string,
     onClickFile?: () => void,
@@ -35,9 +35,11 @@ function File({title, url, src, onClickFile}: Props) {
             <a className={style.File} href={url} target="_black" rel="noopener">
                 <img className={style.File__img} src={imageSrc}/>
             </a>
+            {title &&
             <div className={style.File__title}>
                 {title}
             </div>
+            }
         </span>
 
     );
