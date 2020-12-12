@@ -9,7 +9,7 @@ type Props = {
 function Clock({visible, toggleVisible}: Props) {
     return (
         <div>
-            Clock1
+            Visible
             <CustomInput type="switch" id="clockVisibleSwitch" name="customSwitch"
                          checked={visible}
                          onChange={toggleVisible}/>

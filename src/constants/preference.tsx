@@ -1,6 +1,6 @@
 import React from 'react';
-import ClockPreference from '../containers/Preference/PreferenceClock';
-import GithubPreference from '../components/Preference/Github';
+import PreferenceClock from '../containers/Preference/PreferenceClock';
+import PreferenceGithub from '../containers/Preference/PreferenceGithub';
 import { faClock, faMoon} from "@fortawesome/free-regular-svg-icons"
 import { faGithub } from "@fortawesome/free-brands-svg-icons"
 
@@ -10,13 +10,13 @@ export const SIDEBAR = {
             KEY: 'CLOCK',
             LABEL: 'Clock',
             ICON: faClock,
-            COMP: <ClockPreference/>,
+            COMP: <PreferenceClock/>,
         },
         GITHUB: {
             KEY: 'GITHUB',
             LABEL: 'Github',
             ICON: faGithub,
-            COMP: <ClockPreference/>,
+            COMP: <PreferenceGithub/>,
         }
     },
     DARKMODE: {

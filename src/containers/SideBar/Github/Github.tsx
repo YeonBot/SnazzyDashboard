@@ -3,47 +3,43 @@ import GitHubCalendar from 'react-github-calendar';
 import {Input, Button} from 'reactstrap';
 
 import SideBarCard from "../../../components/SideBar/Card";
-import {getGithubUserName, setGithubUserName} from '../../../utils/github';
+import {getGithubUserName, setGithubUserName} from '../../../utils/preference';
 
 import style from './Github.module.scss';
+import {RootState} from "../../../modules";
+import {changeUsername} from "../../../modules/github";
+import {returntypeof} from "react-redux-typescript";
+import {connect} from "react-redux";
 
-type State = {
-    username: string,
+type Props = typeof statePropTypes & typeof actionPropTypes & {}
+type States = {
     inputUsername: string,
 }
 
-class Github extends Component {
+class Github extends Component<Props, States> {
 
     constructor(props: any) {
         super(props);
 
-        this.getUserName = this.getUserName.bind(this);
+        this.state = {
+            inputUsername: '',
+        }
+
         this.setUserName = this.setUserName.bind(this);
         this.onChangeInput = this.onChangeInput.bind(this);
         this.handleKeyPress = this.handleKeyPress.bind(this);
         this.scrollEndPoint = this.scrollEndPoint.bind(this);
     }
 
-    state: State = {
-        username: '',
-        inputUsername: '',
-    }
-
     componentDidMount() {
-        this.getUserName();
-    }
-
-    getUserName() {
-        const username = getGithubUserName();
-        this.setState(() => ({
-            username,
-        }), this.scrollEndPoint);
+        this.scrollEndPoint();
     }
 
     setUserName() {
         const {inputUsername} = this.state;
-        setGithubUserName(inputUsername);
-        this.getUserName();
+        const {dispatchChangeUsername} = this.props;
+        dispatchChangeUsername(inputUsername);
+        this.scrollEndPoint();
     }
 
     onChangeInput(e: any) {
@@ -54,8 +50,8 @@ class Github extends Component {
         }));
     }
 
-    handleKeyPress(e:any) {
-        if(e.key === 'Enter'){
+    handleKeyPress(e: any) {
+        if (e.key === 'Enter') {
             this.setUserName();
         }
     }
@@ -68,7 +64,8 @@ class Github extends Component {
     }
 
     render() {
-        const {username, inputUsername} = this.state;
+        const {username} = this.props
+        const {inputUsername} = this.state;
 
         return (
             <SideBarCard>
@@ -81,10 +78,9 @@ class Github extends Component {
                                             showTotalCount={false}/>
                         </div>
                         : <div className={style.Github__Input_wrapper}>
-                            <Input placeholder="Enter your Github name"
+                            <Input placeholder="Enter Github name"
                                    value={inputUsername}
                                    onChange={this.onChangeInput}
-                                   onClick={this.setUserName}
                                    onKeyPress={this.handleKeyPress}
                             />
                             <Button color="dark"
@@ -98,4 +94,16 @@ class Github extends Component {
     }
 }
 
-export default Github;
+const mapStateToProps = (state: RootState) => ({
+    username: state.github.username,
+});
+const mapDispatchToProps = (dispatch: any) => ({
+    dispatchChangeUsername: (username: string) => dispatch(changeUsername(username)),
+});
+const statePropTypes = returntypeof(mapStateToProps);
+const actionPropTypes = returntypeof(mapDispatchToProps);
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(Github);

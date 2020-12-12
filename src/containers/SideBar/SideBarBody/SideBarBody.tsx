@@ -1,19 +1,36 @@
 import React, {Component} from 'react';
+import {connect} from "react-redux";
 
 import SidebarClock from '../SidebarClock';
 import Github from '../Github/';
 
 import style from './SideBarBody.module.scss';
 
-class SideBarBody extends Component {
+type StateProps = {
+    clockVisible: boolean,
+    githubVisible: boolean,
+};
+
+class SideBarBody extends Component<StateProps> {
     render() {
+
+        const {clockVisible, githubVisible} =this.props;
+
         return (
             <div className={style.SideBarBody}>
-                <SidebarClock/>
-                <Github/>
+                {clockVisible && <SidebarClock/>}
+                {githubVisible && <Github/>}
             </div>
         );
     }
 }
 
-export default SideBarBody;
+const mapStateToProps = (state:any) => ({
+    clockVisible: state.clock.visible,
+    githubVisible: state.github.visible,
+});
+
+export default connect<StateProps,any,any>(
+    mapStateToProps,
+    null
+)(SideBarBody);

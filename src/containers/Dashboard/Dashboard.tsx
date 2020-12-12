@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import { Container,Row,Col } from 'reactstrap';
 
-import SideBarCard from '../SideBar/SideBarBody';
+import SideBarBody from '../SideBar/SideBarBody';
 import BookMarkCard from '../../containers/BookMarkCard';
 import FavoriteCard from '../../containers/FavoriteCard';
 
@@ -14,7 +14,7 @@ class Dashboard extends Component {
                 <Container className={style.Dashboard__container}>
                     <Row className={style.Dashboard__row}>
                         <Col xs="6" sm="4">
-                            <SideBarCard/>
+                            <SideBarBody/>
                         </Col>
                         <Col xs="12" sm="8">
                             <BookMarkCard/>

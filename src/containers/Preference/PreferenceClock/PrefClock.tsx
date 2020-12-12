@@ -8,11 +8,7 @@ type Props = {
     dispatchToggleVisible: () => void,
 };
 
-type States = {
-
-}
-
-class PreferenceClock extends React.PureComponent<Props,States> {
+class PrefClock extends React.PureComponent<Props> {
 
     render() {
 
@@ -37,4 +33,4 @@ const mapDispatchToProps = (dispatch:any) => ({
 export default connect(
     mapStateToProps,
     mapDispatchToProps
-)(PreferenceClock);
+)(PrefClock);
