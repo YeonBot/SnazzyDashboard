@@ -44,7 +44,7 @@ class BookMarkCard extends Component {
     componentDidMount() {
         getTree().then((tree) => {
             this.setState(() => ({
-                bookmarkBar: _get(tree, '0.children.0.children', []),
+                bookmarkBar: _get(tree, 'children.0.children', []),
             }));
         });
     }

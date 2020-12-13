@@ -1,4 +1,4 @@
-module.exports =  [{
+module.exports =  {
     "children": [{
         "children": [{
             "children": [{
@@ -715,4 +715,4 @@ module.exports =  [{
         "parentId": "0",
         "title": "기타 북마크"
     }], "dateAdded": 1605940816751, "id": "0", "title": ""
-}]
+}
