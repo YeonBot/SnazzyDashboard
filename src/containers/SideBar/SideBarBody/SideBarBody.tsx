@@ -6,15 +6,17 @@ import Github from '../Github/';
 
 import style from './SideBarBody.module.scss';
 
+type Prpos = StateProps & {toggleSetSidebarOpen: ()=> void};
+
 type StateProps = {
     clockVisible: boolean,
     githubVisible: boolean,
 };
 
-class SideBarBody extends Component<StateProps> {
+class SideBarBody extends Component<Prpos> {
     render() {
 
-        const {clockVisible, githubVisible} =this.props;
+        const {clockVisible, githubVisible} = this.props;
 
         return (
             <div className={style.SideBarBody}>
