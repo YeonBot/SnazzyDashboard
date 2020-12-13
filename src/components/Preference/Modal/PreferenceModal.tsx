@@ -46,6 +46,29 @@ function PreferenceModal({isOpen, toggle}: Props) {
                     <span className={cx('PreferenceModal__sidebar__hr')}>
                         <hr/>
                     </span>
+                    <div className={styles.PreferenceModal__sidebar__title}>Favorite</div>
+                    {
+                        Object.keys(SIDEBAR.FAVORITE).map((sidebarkey) => {
+                            const ICON = SIDEBAR.FAVORITE[sidebarkey as keyof typeof SIDEBAR.FAVORITE].ICON;
+                            return (
+                                <div key={sidebarkey}
+                                     className={cx('PreferenceModal__sidebar__item',
+                                         {"PreferenceModal__sidebar__item-selected": sidebarkey === selectedSideBarKey})
+                                     }>
+                                    <div onClick={() => {
+                                        changeSideBarKey(sidebarkey)
+                                        changeComp(SIDEBAR.FAVORITE[sidebarkey as keyof typeof SIDEBAR.FAVORITE].COMP)
+                                    }}>
+                                        <FontAwesomeIcon icon={ICON} size='lg'/>
+                                        {SIDEBAR.FAVORITE[sidebarkey as keyof typeof SIDEBAR.FAVORITE].LABEL}
+                                    </div>
+                                </div>
+                            )
+                        })
+                    }
+                    <span className={cx('PreferenceModal__sidebar__hr')}>
+                        <hr/>
+                    </span>
                     <div className={cx('PreferenceModal__sidebar__darkmode')}>
                         <div>
                             <FontAwesomeIcon icon={SIDEBAR.DARKMODE.ICON} size='lg'/>
