@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
+import ReactTooltip from 'react-tooltip';
 
-import {getFaviconUrlFromDomain} from '../../../utils/favicon';
+import {getFaviconUrlFromDomain, getTitleFronDomain} from '../../../utils/favicon';
 
 import style from './File.module.scss';
 
@@ -14,10 +15,19 @@ type Props = {
 function File({title, url, src, onClickFile}: Props) {
 
     const [imageSrc, setSrc] = useState<string>('');
+    const [tooltip, setTooltip] = useState<string>('');
+    const [tooltipOpen, setTooltipOpen] = useState(false);
 
     useEffect(() => {
         setFileSrc();
+        if (url && !title) {
+            getTitleFronDomain(url).then((title) => {
+                setTooltip(title);
+            });
+        }
     }, []);
+
+    const toggle = () => setTooltipOpen(!tooltipOpen);
 
     const setFileSrc = () => {
         if (url) {
@@ -30,15 +40,34 @@ function File({title, url, src, onClickFile}: Props) {
         }
     }
 
+    const tooltipId = `Tooltip-${Math.random().toString(36).substr(2, 5)}`;
+    console.log(tooltip, tooltipId)
+
     return (
         <span onClick={onClickFile}>
-            <a className={style.File} href={url} target="_black" rel="noopener">
-                <img className={style.File__img} src={imageSrc}/>
+            <a
+                className={style.File}
+                href={url}
+                target="_black"
+                rel="noopener"
+                data-for={tooltipId}
+                data-tip={<span>{tooltip}</span>}>
+                    <img className={style.File__img} src={imageSrc}/>
             </a>
             {title &&
             <div className={style.File__title}>
                 {title}
             </div>
+            }
+            {tooltip &&
+                <ReactTooltip id={tooltipId}
+                              className={style.File__tooltip}
+                              data-html={true}
+                              effect='solid'
+                              offset={{top: 10}}
+                >
+                    <span className={style.File__tooltip__inner}>{tooltip}</span>
+                </ReactTooltip>
             }
         </span>
 
