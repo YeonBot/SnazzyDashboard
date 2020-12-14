@@ -1,12 +1,15 @@
 import React, {useState} from 'react';
 import {Input} from "reactstrap";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faTimes} from "@fortawesome/free-solid-svg-icons";
 
 type Props = {
     list: Array<string>,
     setFavoriteItem: (favoriteItem: string) => void,
+    deleteFavoriteItem:(favoriteItem: string) => void,
 };
 
-function Favorite({list, setFavoriteItem}: Props) {
+function Favorite({list, setFavoriteItem,deleteFavoriteItem}: Props) {
 
     const [inputFavoriteItem, setInputFavoriteItem] = useState<string>('');
 
@@ -22,13 +25,11 @@ function Favorite({list, setFavoriteItem}: Props) {
         setInputFavoriteItem(value);
     }
 
-    console.log('list',list);
-
     return (
         <div>
             Link list
             {list.map(item => (
-                <div>{item}</div>
+                <div>{item}<FontAwesomeIcon icon={faTimes} onClick={() => deleteFavoriteItem(item)}/></div>
             ))}
             <Input placeholder="Enter your favorite Link"
                    value={inputFavoriteItem}

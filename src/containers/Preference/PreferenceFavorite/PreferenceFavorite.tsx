@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import {returntypeof} from 'react-redux-typescript'
 
 import Favorite from '../../../components/Preference/Favorite';
-import {setFavoriteItem} from "../../../modules/favorite";
+import {setFavoriteItem, deleteFavoriteItem} from "../../../modules/favorite";
 
 import {RootState} from '../../../modules';
 
@@ -13,12 +13,13 @@ class PreferenceFavorite extends React.PureComponent<Props> {
 
     render() {
 
-        const {list, dispatchSetFavoriteItem} = this.props
+        const {list, dispatchSetFavoriteItem, dispatchDeleteFavoriteItem} = this.props
 
         return (
             <Favorite
                 list={list}
                 setFavoriteItem={dispatchSetFavoriteItem}
+                deleteFavoriteItem={dispatchDeleteFavoriteItem}
             />
         )
     }
@@ -29,6 +30,7 @@ const mapStateToProps = (state: RootState) => ({
 });
 const mapDispatchToProps = (dispatch: any) => ({
     dispatchSetFavoriteItem: (favoriteItem: string) => dispatch(setFavoriteItem(favoriteItem)),
+    dispatchDeleteFavoriteItem: (favoriteItem: string) => dispatch(deleteFavoriteItem(favoriteItem)),
 });
 const statePropTypes = returntypeof(mapStateToProps);
 const actionPropTypes = returntypeof(mapDispatchToProps);

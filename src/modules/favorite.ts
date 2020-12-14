@@ -1,9 +1,17 @@
-import {getFavoriteList, setFavoriteList} from '../utils/preference';
+import {getFavoriteList, setFavoriteList, updateFavoriteList} from '../utils/preference';
 
 export const SET_FAVORITE_ITEM = 'SET_FAVORITE_ITEM' as const;
+export const DELETE_FAVORITE_ITEM = 'DELETE_FAVORITE_ITEM' as const;
 
-export const setFavoriteItem = (favoriteItem:string) => ({
+export const setFavoriteItem = (favoriteItem: string) => ({
     type: SET_FAVORITE_ITEM,
+    payload: {
+        favoriteItem,
+    }
+});
+
+export const deleteFavoriteItem = (favoriteItem: string) => ({
+    type: DELETE_FAVORITE_ITEM,
     payload: {
         favoriteItem,
     }
@@ -11,6 +19,7 @@ export const setFavoriteItem = (favoriteItem:string) => ({
 
 type FavoriteAction =
     | ReturnType<typeof setFavoriteItem>
+    | ReturnType<typeof deleteFavoriteItem>
 
 export type FavoriteState = {
     list: Array<string>;
@@ -23,11 +32,19 @@ const initialState: FavoriteState = {
 function clock(state: FavoriteState = initialState, action: FavoriteAction) {
     switch (action.type) {
         case SET_FAVORITE_ITEM:
-            const favoriteItem = action.payload.favoriteItem;
-            setFavoriteList(favoriteItem);
+            const setFavoriteItem = action.payload.favoriteItem;
+            setFavoriteList(setFavoriteItem);
             return {
                 ...state,
-                list: [...state.list, favoriteItem]
+                list: [...state.list, setFavoriteItem]
+            };
+        case DELETE_FAVORITE_ITEM:
+            const deleteFavoriteItem= action.payload.favoriteItem;
+            let list = state.list.filter(item => item !== deleteFavoriteItem);
+            updateFavoriteList(list);
+            return {
+                ...state,
+                list,
             };
         default:
             return state;

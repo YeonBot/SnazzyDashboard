@@ -42,3 +42,7 @@ export const setFavoriteList = (favorite: string) => {
     arrayFavorite.push(favorite);
     localStorage.setItem(FAVORITE_LIST, JSON.stringify(arrayFavorite));
 };
+
+export const updateFavoriteList = (favoriteList: Array<string>) => {
+    localStorage.setItem(FAVORITE_LIST, JSON.stringify(favoriteList));
+};
