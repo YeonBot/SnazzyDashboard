@@ -1,10 +1,11 @@
 import React, {Component} from 'react';
+import {connect} from "react-redux";
+import {returntypeof} from "react-redux-typescript";
 
 import PreferenceModal from '../../components/Preference/Modal';
 import File from "../../components/Bookmark/File";
 
 import style from './FavoriteCard.module.scss';
-import DirModal from "../../components/Bookmark/DirModal";
 
 const dummySite = [
     {
@@ -25,18 +26,21 @@ type State = {
     isOpen: boolean,
 };
 
-class FavoriteCard extends Component {
+type Props = typeof statePropTypes & {};
+
+class FavoriteCard extends Component<Props, State> {
 
     constructor(props: any) {
         super(props);
+
+        this.state = {
+            isOpen: false,
+        }
 
         this.handleClickPreference = this.handleClickPreference.bind(this);
         this.toggle = this.toggle.bind(this);
     }
 
-    state: State = {
-        isOpen: false,
-    }
 
     handleClickPreference() {
         this.toggle();
@@ -50,21 +54,20 @@ class FavoriteCard extends Component {
 
     render() {
         const {isOpen} = this.state;
+        const {list} = this.props;
         return (
             <div className={style.FavoriteCard}>
                 {
-                    dummySite.map((dummy) => (
+                    list.map((item: string) => (
                         <File
-                            key={dummy.title}
-                            // title={dummy.title}
-                            url={dummy.url}
+                            key={item}
+                            url={item}
                         />
                     ))
                 }
                 <File
-                    // title="preferences"
-                      src="/images/preferences.png"
-                      onClickFile={this.handleClickPreference}
+                    src="/images/preferences.png"
+                    onClickFile={this.handleClickPreference}
                 />
                 <PreferenceModal
                     isOpen={isOpen}
@@ -74,4 +77,13 @@ class FavoriteCard extends Component {
     }
 }
 
-export default FavoriteCard;
+const mapStateToProps = (state: any) => ({
+    list: state.favorite.list,
+});
+
+const statePropTypes = returntypeof(mapStateToProps);
+
+export default connect<typeof statePropTypes, any, any>(
+    mapStateToProps,
+    null
+)(FavoriteCard);

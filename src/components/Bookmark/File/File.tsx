@@ -16,7 +16,6 @@ function File({title, url, src, onClickFile}: Props) {
 
     const [imageSrc, setSrc] = useState<string>('');
     const [tooltip, setTooltip] = useState<string>('');
-    const [tooltipOpen, setTooltipOpen] = useState(false);
 
     useEffect(() => {
         setFileSrc();
@@ -26,8 +25,6 @@ function File({title, url, src, onClickFile}: Props) {
             });
         }
     }, []);
-
-    const toggle = () => setTooltipOpen(!tooltipOpen);
 
     const setFileSrc = () => {
         if (url) {
@@ -41,7 +38,6 @@ function File({title, url, src, onClickFile}: Props) {
     }
 
     const tooltipId = `Tooltip-${Math.random().toString(36).substr(2, 5)}`;
-    console.log(tooltip, tooltipId)
 
     return (
         <span onClick={onClickFile}>

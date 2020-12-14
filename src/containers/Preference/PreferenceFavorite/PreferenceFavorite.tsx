@@ -1,9 +1,9 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import { returntypeof } from 'react-redux-typescript'
+import {connect} from 'react-redux';
+import {returntypeof} from 'react-redux-typescript'
 
 import Favorite from '../../../components/Preference/Favorite';
-import {toggleVisible,changeUsername} from "../../../modules/github";
+import {setFavoriteItem} from "../../../modules/favorite";
 
 import {RootState} from '../../../modules';
 
@@ -13,24 +13,22 @@ class PreferenceFavorite extends React.PureComponent<Props> {
 
     render() {
 
-        const {visible, dispatchToggleVisible} = this.props
+        const {list, dispatchSetFavoriteItem} = this.props
 
         return (
             <Favorite
-                visible={visible}
-                toggleVisible={dispatchToggleVisible}
+                list={list}
+                setFavoriteItem={dispatchSetFavoriteItem}
             />
         )
     }
 }
 
-const mapStateToProps = (state:RootState) => ({
-    visible: state.github.visible,
-    username: state.github.username,
+const mapStateToProps = (state: RootState) => ({
+    list: state.favorite.list,
 });
-const mapDispatchToProps = (dispatch:any) => ({
-    dispatchToggleVisible: () => dispatch(toggleVisible()),
-    dispatchChangeUsername: (username:string) => dispatch(changeUsername(username)),
+const mapDispatchToProps = (dispatch: any) => ({
+    dispatchSetFavoriteItem: (favoriteItem: string) => dispatch(setFavoriteItem(favoriteItem)),
 });
 const statePropTypes = returntypeof(mapStateToProps);
 const actionPropTypes = returntypeof(mapDispatchToProps);

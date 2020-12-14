@@ -66,7 +66,9 @@ class Dashboard extends Component<Props, States> {
                                 sidebarClassName={style['Dashboard__row__sidebar-sidebar']}
                                 overlayClassName={style['Dashboard__row__sidebar-overlay']}
                                 contentClassName={style['Dashboard__row__sidebar-overlay']}
-                            />
+                            >
+                                <span/>
+                            </Sidebar>
                             <div className={style.Dashboard__row__sidebar__openBtn}>
                                 <Button color="dark" onClick={this.toggleSetSidebarOpen}>
                                     <FontAwesomeIcon icon={this.state.sidebarOpen ? faChevronLeft : faChevronRight} size='lg'/>

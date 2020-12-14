@@ -1,19 +1,15 @@
 import React, {Component} from 'react';
 import {connect} from "react-redux";
+import {returntypeof} from "react-redux-typescript";
 
 import SidebarClock from '../SidebarClock';
 import Github from '../Github/';
 
 import style from './SideBarBody.module.scss';
 
-type Prpos = StateProps & {toggleSetSidebarOpen: ()=> void};
+type Props = typeof statePropTypes & {toggleSetSidebarOpen: ()=> void};
 
-type StateProps = {
-    clockVisible: boolean,
-    githubVisible: boolean,
-};
-
-class SideBarBody extends Component<Prpos> {
+class SideBarBody extends Component<Props> {
     render() {
 
         const {clockVisible, githubVisible} = this.props;
@@ -32,7 +28,9 @@ const mapStateToProps = (state:any) => ({
     githubVisible: state.github.visible,
 });
 
-export default connect<StateProps,any,any>(
+const statePropTypes = returntypeof(mapStateToProps)
+
+export default connect<typeof statePropTypes,any,any>(
     mapStateToProps,
     null
 )(SideBarBody);

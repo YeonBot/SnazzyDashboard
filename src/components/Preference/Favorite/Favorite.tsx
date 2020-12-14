@@ -1,18 +1,40 @@
-import * as React from 'react';
-import {CustomInput} from "reactstrap";
+import React, {useState} from 'react';
+import {Input} from "reactstrap";
 
 type Props = {
-    visible: boolean,
-    toggleVisible: () => void,
+    list: Array<string>,
+    setFavoriteItem: (favoriteItem: string) => void,
 };
 
-function Favorite({visible, toggleVisible}: Props) {
+function Favorite({list, setFavoriteItem}: Props) {
+
+    const [inputFavoriteItem, setInputFavoriteItem] = useState<string>('');
+
+    const handleKeyPress = (e: any) => {
+        if (e.key === 'Enter' && inputFavoriteItem) {
+            setFavoriteItem(inputFavoriteItem);
+            setInputFavoriteItem('');
+        }
+    }
+
+    const changeInputFavoriteItem = (e: any) => {
+        const {value} = e.target;
+        setInputFavoriteItem(value);
+    }
+
+    console.log('list',list);
+
     return (
         <div>
-            FVisible
-            <CustomInput type="switch" id="clockVisibleSwitch" name="customSwitch"
-                         checked={visible}
-                         onChange={toggleVisible}/>
+            Link list
+            {list.map(item => (
+                <div>{item}</div>
+            ))}
+            <Input placeholder="Enter your favorite Link"
+                   value={inputFavoriteItem}
+                   onKeyPress={handleKeyPress}
+                   onChange={changeInputFavoriteItem}
+            />
         </div>
     );
 }

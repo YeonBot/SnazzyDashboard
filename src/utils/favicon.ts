@@ -48,7 +48,7 @@ export const getFaviconUrlFromDomain = async (domain: string) => {
         }
         return faviconObject[originUrl];
     } catch (err) {
-        if (err.response.status === 404) {
+        if (err?.response?.status === 404) {
             faviconObject[originUrl] = DEFAULT_URL;
             localStorage.setItem(FAVICON_URL, JSON.stringify(faviconObject));
         }
