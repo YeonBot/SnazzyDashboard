@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import ReactTooltip from 'react-tooltip';
 
-import {getFaviconUrlFromDomain, getTitleFronDomain} from '../../../utils/favicon';
+import {getFaviconUrlFromDomain, getTitleFronDomain} from '../../../utils/domain';
 
 import style from './File.module.scss';
 

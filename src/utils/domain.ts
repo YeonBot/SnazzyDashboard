@@ -14,14 +14,34 @@ export const getTitleFronDomain = async (domain: string) => {
     return data || forTitle;
 }
 
-export const getFaviconUrlFromDomain = async (domain: string) => {
-
-    const url = new URL(domain);
-
-    const originUrl = url.origin;
-    const faviconObject = JSON.parse(localStorage.getItem(FAVICON_URL) || '{}');
+export const validURLCheck = (domain:string) => {
 
     try {
+        new URL(domain);
+        return domain;
+    } catch (err) {}
+
+    try {
+        new URL(`https://${domain}`);
+        return `https://${domain}`;
+    } catch (err) {}
+
+    return '';
+}
+
+export const getFaviconUrlFromDomain = async (domain: string) => {
+
+    try {
+        let originUrl = '';
+        try {
+            const url = new URL(domain );
+            originUrl = url.origin;
+        } catch (e) {
+            originUrl = domain;
+        }
+
+        const faviconObject = JSON.parse(localStorage.getItem(FAVICON_URL) || '{}');
+
         if (!faviconObject[originUrl]) {
             const {
                 data: {
@@ -48,10 +68,7 @@ export const getFaviconUrlFromDomain = async (domain: string) => {
         }
         return faviconObject[originUrl];
     } catch (err) {
-        if (err?.response?.status === 404) {
-            faviconObject[originUrl] = DEFAULT_URL;
-            localStorage.setItem(FAVICON_URL, JSON.stringify(faviconObject));
-        }
+        console.log(err);
         return DEFAULT_URL;
     }
 }

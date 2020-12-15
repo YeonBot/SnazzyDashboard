@@ -3,6 +3,8 @@ import {Input} from "reactstrap";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faTimes} from "@fortawesome/free-solid-svg-icons";
 
+import {validURLCheck} from '../../../utils/domain';
+
 type Props = {
     list: Array<string>,
     setFavoriteItem: (favoriteItem: string) => void,
@@ -14,8 +16,9 @@ function Favorite({list, setFavoriteItem,deleteFavoriteItem}: Props) {
     const [inputFavoriteItem, setInputFavoriteItem] = useState<string>('');
 
     const handleKeyPress = (e: any) => {
-        if (e.key === 'Enter' && inputFavoriteItem) {
-            setFavoriteItem(inputFavoriteItem);
+        const validURL = validURLCheck(inputFavoriteItem);
+        if (e.key === 'Enter' && validURL) {
+            setFavoriteItem(validURL);
             setInputFavoriteItem('');
         }
     }

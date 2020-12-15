@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 
-import {getFaviconUrlFromDomain} from '../../../utils/favicon';
+import {getFaviconUrlFromDomain} from '../../../utils/domain';
 
 import style from './Directory.module.scss';
 
