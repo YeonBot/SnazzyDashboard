@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import './App.scss'
 import App from './containers/App';
 import {Provider} from 'react-redux';
 import {createStore, compose} from 'redux';
@@ -13,7 +14,7 @@ declare global {
     }
 }
 
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ ||compose;
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const store = createStore(
     rootReducer
     ,composeEnhancers()

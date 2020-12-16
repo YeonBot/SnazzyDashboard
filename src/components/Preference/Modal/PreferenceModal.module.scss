@@ -15,7 +15,7 @@
     height: 695px;
     box-shadow: rgba(15, 15, 15, 0.1) 0px 0px 0px 1px, rgba(15, 15, 15, 0.2) 0px 5px 10px, rgba(15, 15, 15, 0.4) 0px 15px 40px;
     padding: 0rem;
-    color: rgba(255, 255, 255, 0.9);
+    color: var(--preference--color);
     //background-color: rgba( 100, 100, 100, 0.95 );
     background-color: white;
     display: flex;
@@ -32,7 +32,7 @@
 
   &__sidebar {
     width: 200px;
-    background-color: rgb(55, 60, 63);
+    background-color: var(--preference--background-sidebar);
     display: flex;
     flex-direction: column;
     height: 100%;
@@ -46,7 +46,7 @@
       font-size: 11px;
       line-height: 1;
       margin-bottom: 1px;
-      color: rgba(255, 255, 255, 0.6);
+      color: var(--preference--background-sidebar-title);
       font-weight: 500;
       padding: 5px 15px;
       text-overflow: ellipsis;
@@ -64,7 +64,7 @@
       font-size: 14px;
 
       &-selected {
-        background: rgb(71, 76, 80);
+        background: var(--preference--background-sidebar-selected);
       }
     }
 
@@ -93,9 +93,7 @@
   &__content {
     flex-grow: 1;
     position: relative;
-    background-color: rgb(47, 52, 55);
-    //transform: translateZ(0px);
+    background-color: var(--preference--background-main);
     padding: 36px 60px;
-    //overflow: auto;
   }
 }
