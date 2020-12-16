@@ -6,27 +6,13 @@ import PreferenceModal from '../../components/Preference/Modal';
 import File from "../../components/Bookmark/File";
 
 import style from './FavoriteCard.module.scss';
-
-const dummySite = [
-    {
-        title: "goormIDE",
-        url: 'https://ide.goorm.io/dashboard',
-    },
-    {
-        title: "gmail",
-        url: 'https://mail.google.com/',
-    },
-    {
-        title: "Calendar",
-        url: 'https://calendar.google.com/',
-    },
-]
+import {toggleDarkMode} from "../../modules/darkmode";
 
 type State = {
     isOpen: boolean,
 };
 
-type Props = typeof statePropTypes & {};
+type Props = typeof statePropTypes & typeof dispacthPropTypes & {};
 
 class FavoriteCard extends Component<Props, State> {
 
@@ -54,7 +40,7 @@ class FavoriteCard extends Component<Props, State> {
 
     render() {
         const {isOpen} = this.state;
-        const {list} = this.props;
+        const {list, darkMode, dispatchToggleDarkMode} = this.props;
         return (
             <div className={style.FavoriteCard}>
                 {
@@ -71,7 +57,9 @@ class FavoriteCard extends Component<Props, State> {
                 />
                 <PreferenceModal
                     isOpen={isOpen}
-                    toggle={this.toggle}/>
+                    toggle={this.toggle}
+                    darkMode={darkMode}
+                    toggleDarkMode={dispatchToggleDarkMode}/>
             </div>
         );
     }
@@ -79,11 +67,16 @@ class FavoriteCard extends Component<Props, State> {
 
 const mapStateToProps = (state: any) => ({
     list: state.favorite.list,
+    darkMode: state.darkMode.darkMode,
+});
+const mapDispatchToProps = (dispatch: any) => ({
+    dispatchToggleDarkMode: () => dispatch(toggleDarkMode()),
 });
 
 const statePropTypes = returntypeof(mapStateToProps);
+const dispacthPropTypes = returntypeof(mapDispatchToProps);
 
 export default connect<typeof statePropTypes, any, any>(
     mapStateToProps,
-    null
+    mapDispatchToProps
 )(FavoriteCard);

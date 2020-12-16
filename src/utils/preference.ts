@@ -2,6 +2,7 @@ const CLOCK_VISIBLE = 'CLOCK_VISIBLE';
 const GITHUB_USERNAME = 'GITHUB_USERNAME';
 const GITHUB_VISIBLE = 'GITHUB_VISIBLE';
 const FAVORITE_LIST = 'FAVORITE_LIST';
+const DARK_MODE = 'DARK_MODE';
 
 export const getClockVisible = () => {
     const stringVisible: string = localStorage.getItem(CLOCK_VISIBLE) || 'true';
@@ -45,4 +46,14 @@ export const setFavoriteList = (favorite: string) => {
 
 export const updateFavoriteList = (favoriteList: Array<string>) => {
     localStorage.setItem(FAVORITE_LIST, JSON.stringify(favoriteList));
+};
+
+export const getDarkMode = () => {
+    const stringDarkMode: string = localStorage.getItem(DARK_MODE) || 'true';
+    return JSON.parse(stringDarkMode);
+};
+
+export const setDarkMode = (darkMode: boolean) => {
+    const stringDarkMode = JSON.stringify(darkMode);
+    localStorage.setItem(DARK_MODE, stringDarkMode);
 };

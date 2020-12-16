@@ -12,9 +12,11 @@ const cx = classNames.bind(styles);
 type Props = {
     isOpen: boolean;
     toggle: () => void;
+    darkMode: boolean;
+    toggleDarkMode: () => void;
 }
 
-function PreferenceModal({isOpen, toggle}: Props) {
+function PreferenceModal({isOpen, toggle, darkMode, toggleDarkMode}: Props) {
 
     const [selectedSideBarKey, changeSideBarKey] = useState<string>(SIDEBAR.WIDGET.GITHUB.KEY);
     const [SelectedComp, changeComp] = useState<any>(SIDEBAR.WIDGET.GITHUB.COMP);
@@ -74,7 +76,10 @@ function PreferenceModal({isOpen, toggle}: Props) {
                             <FontAwesomeIcon icon={SIDEBAR.DARKMODE.ICON} size='lg'/>
                             {SIDEBAR.DARKMODE.LABEL}
                         </div>
-                        <CustomInput type="switch" id="exampleCustomSwitch" name="customSwitch"/>
+                        <CustomInput type="switch" id="exampleCustomSwitch" name="customSwitch"
+                                     checked={darkMode}
+                                     onChange={toggleDarkMode}
+                        />
                     </div>
                 </div>
                 <div className={styles.PreferenceModal__content}>
