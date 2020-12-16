@@ -1,0 +1,101 @@
+.PreferenceModal {
+  align-self: center;
+  & > * {
+    background-color: inherit;
+    border: none;
+    align-items: center;
+  }
+
+  & svg {
+    margin-right: .5rem;
+  }
+
+  &__body {
+    width: 960px;
+    height: 695px;
+    box-shadow: rgba(15, 15, 15, 0.1) 0px 0px 0px 1px, rgba(15, 15, 15, 0.2) 0px 5px 10px, rgba(15, 15, 15, 0.4) 0px 15px 40px;
+    padding: 0rem;
+    color: rgba(255, 255, 255, 0.9);
+    //background-color: rgba( 100, 100, 100, 0.95 );
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: flex-start;
+
+    & > *:nth-child(4n+0){
+      & > * {
+        margin-right: 0;
+      }
+    }
+  }
+
+  &__sidebar {
+    width: 200px;
+    background-color: rgb(55, 60, 63);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding-top: 10px;
+    padding-bottom: 12px;
+    //justify-content: space-between;
+
+    &__title {
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      font-size: 11px;
+      line-height: 1;
+      margin-bottom: 1px;
+      color: rgba(255, 255, 255, 0.6);
+      font-weight: 500;
+      padding: 5px 15px;
+      text-overflow: ellipsis;
+      overflow: hidden;
+    }
+
+    &__item {
+      user-select: none;
+      transition: background 20ms ease-in 0s;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      padding: 5px 15px;
+      font-weight: 600;
+      font-size: 14px;
+
+      &-selected {
+        background: rgb(71, 76, 80);
+      }
+    }
+
+    &__hr {
+      width: 100%;
+      padding: 15px;
+      & > * {
+        height: 1px;
+        margin: 0;
+      }
+    }
+
+    &__darkmode {
+      user-select: none;
+      transition: background 20ms ease-in 0s;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 5px 15px;
+      font-weight: 600;
+      font-size: 14px;
+    }
+  }
+
+  &__content {
+    flex-grow: 1;
+    position: relative;
+    background-color: rgb(47, 52, 55);
+    //transform: translateZ(0px);
+    padding: 36px 60px;
+    //overflow: auto;
+  }
+}

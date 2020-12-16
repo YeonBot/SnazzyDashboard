@@ -1,0 +1,80 @@
+.Dashboard {
+  width :100%;
+  height: 100%;
+  background-image: url('../../public/image/background/macOsBigsurDark.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  &__animation {
+    width: 1rem !important;
+    transition: all .3s ease-out 0s !important;
+  }
+
+  &__animation-reset {
+    width: 100% !important;
+    transition: all .3s ease-out 0s !important;
+  }
+
+  &__container {
+    padding:2.5rem 0;
+    height: 90%;
+    margin: auto;
+
+    &__bottom {
+      padding:0 0 2.5rem 0;
+      margin: auto;
+    }
+  }
+
+  &__row {
+    height:100%;
+    display: flex;
+    flex-direction: row;
+
+    &__sidebar {
+      margin-right: 5rem;
+      position: relative;
+
+      &__openBtn {
+        position: absolute;
+        right: 0;
+        top: 10px;
+        opacity: 5%;
+      }
+      &__openBtn:hover {
+        opacity: 40%;
+      }
+
+      &-root {
+        position: unset !important;
+      }
+
+      &-sidebar {
+        width: 100%;
+        position: unset !important;
+      }
+
+      &-overlay {
+        z-index: 0 !important;
+        position: initial !important;
+        background-color: initial !important;
+        inset: initial !important;
+      }
+
+      &-content {
+        z-index: 0 !important;
+        position: initial !important;
+        background-color: initial !important;
+        inset: initial !important;
+      }
+    }
+
+    &__bottom {
+      width: fit-content;
+      margin: auto;
+      & > *:first-child {
+        padding: 0;
+      }
+    }
+  }
+}

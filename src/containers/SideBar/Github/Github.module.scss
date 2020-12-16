@@ -1,0 +1,23 @@
+.Github {
+  &__wrapper {
+    overflow-x: auto;
+    &::-webkit-scrollbar {
+      display: none !important; // 윈도우 크롬 등
+    }
+  }
+
+  &__scroll {
+    width: 200%;
+  }
+
+  &__Input_wrapper {
+    flex-direction: row;
+    display: flex;
+    padding: .5rem;
+
+    & > *:not(:last-child) {
+      margin-right: .5rem;
+    }
+
+  }
+}
