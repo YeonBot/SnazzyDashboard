@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const FAVICON_URL: string = "FAVICON_URL";
-const DEFAULT_URL = '/images/defaultSiteFIle.png';
+export const DEFAULT_URL = '/images/defaultSiteFIle.png';
 
 export const getTitleFronDomain = async (domain: string) => {
     const forTitle = domain.split("://")[1];
