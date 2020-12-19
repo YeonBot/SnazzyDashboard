@@ -6,4 +6,6 @@
   grid-template-columns: repeat(auto-fill, 5rem);
   grid-template-rows: repeat(auto-fill, 5rem);
   gap: 4rem 5rem;
+
+  overflow-y: auto;
 }

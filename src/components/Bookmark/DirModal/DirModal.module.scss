@@ -1,9 +1,30 @@
 .DirModal {
   align-self: center;
+  max-width:47rem;
+
   & > * {
     background-color: inherit;
     border: none;
     align-items: center;
+    justify-content: center;
+  }
+
+  &__header {
+    font-size: 2rem;
+    color: var(--text-color);
+    position: absolute;
+    top: -4rem
+  }
+
+  &__button_left {
+    position: absolute;
+    left: 0;
+    opacity: 20%;
+  }
+  &__button_right {
+    position: absolute;
+    right: 0;
+    opacity: 20%;
   }
 
   &__body {
@@ -12,10 +33,13 @@
     padding: 2.5rem;
     background-color: rgba( 100, 100, 100, 0.95 );
     border-radius: 70px;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-content: flex-start;
+
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 5rem);
+    grid-template-rows: repeat(auto-fill, 5rem);
+    gap: 4rem 5rem;
+
+    overflow-y: hidden;
 
     & > *:nth-child(4n+0){
       & > * {
