@@ -9,10 +9,11 @@ type Props = {
     title?: string,
     url?: string,
     src?: string,
+    propsTooltip?: string,
     onClickFile?: () => void,
 }
 
-function File({title, url, src, onClickFile}: Props) {
+function File({title, url, src, propsTooltip, onClickFile}: Props) {
 
     const [imageSrc, setSrc] = useState<string>('');
     const [tooltip, setTooltip] = useState<string>('');
@@ -23,6 +24,9 @@ function File({title, url, src, onClickFile}: Props) {
             getTitleFronDomain(url).then((title) => {
                 setTooltip(title);
             });
+        }
+        if(propsTooltip) {
+            setTooltip(propsTooltip);
         }
     }, []);
 

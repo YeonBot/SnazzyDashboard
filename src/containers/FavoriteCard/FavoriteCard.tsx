@@ -53,6 +53,7 @@ class FavoriteCard extends Component<Props, State> {
                 }
                 <File
                     src="/images/preferences.png"
+                    propsTooltip="Preference"
                     onClickFile={this.handleClickPreference}
                 />
                 <PreferenceModal
