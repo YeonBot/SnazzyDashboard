@@ -22,7 +22,13 @@ function PreferenceModal({isOpen, toggle, darkMode, toggleDarkMode}: Props) {
     const [SelectedComp, changeComp] = useState<any>(SIDEBAR.WIDGET.GITHUB.COMP);
 
     return (
-        <Modal isOpen={isOpen} toggle={toggle} centered className={styles.PreferenceModal}>
+        <Modal isOpen={isOpen}
+               toggle={toggle}
+               centered
+               className={styles.PreferenceModal}
+               backdropClassName={styles.PreferenceModal__backdrop}
+        >
+
             <ModalBody className={styles.PreferenceModal__body}>
                 <div className={styles.PreferenceModal__sidebar}>
                     <div className={styles.PreferenceModal__sidebar__title}>Widget</div>

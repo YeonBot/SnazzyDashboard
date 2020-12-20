@@ -42,18 +42,21 @@ function DirModal({title, isOpen, toggle, selectedBookmarkBar, onClickDir}: Prop
     }
 
     return (
-        <Modal isOpen={isOpen} toggle={toggle} centered className={styles.DirModal}>
+        <Modal isOpen={isOpen} toggle={toggle}
+               centered
+               className={styles.DirModal}
+               backdropClassName={styles.DirModal__backdrop}>
             <div className={styles.DirModal__header}>{title}</div>
 
-            { page !== 1 &&
-                <div className={styles.DirModal__button_left}>
-                    <Button color="dark" onClick={onClickLeftPage}>
-                        <FontAwesomeIcon icon={faChevronLeft} size='lg'/>
-                    </Button>
-                </div>
+            {page !== 1 &&
+            <div className={styles.DirModal__button_left}>
+                <Button color="dark" onClick={onClickLeftPage}>
+                    <FontAwesomeIcon icon={faChevronLeft} size='lg'/>
+                </Button>
+            </div>
             }
 
-            { page !== maxPage &&
+            {page !== maxPage &&
             <div className={styles.DirModal__button_right}>
                 <Button color="dark" onClick={onClickRightPage}>
                     <FontAwesomeIcon icon={faChevronRight} size='lg'/>
@@ -63,18 +66,18 @@ function DirModal({title, isOpen, toggle, selectedBookmarkBar, onClickDir}: Prop
             <ModalBody className={styles.DirModal__body}>
                 {selectedBookmarkBar
                     .filter((bookmark, idx) => {
-                        if( idx >= (page -1) * FILE_COUNT_BY_PAGE && idx < page * FILE_COUNT_BY_PAGE){
+                        if (idx >= (page - 1) * FILE_COUNT_BY_PAGE && idx < page * FILE_COUNT_BY_PAGE) {
                             return true;
                         }
                         return false;
                     })
                     .map((bookmark, idx) => {
                             return bookmark.url
-                                ? <File key={bookmark.id +idx}
+                                ? <File key={bookmark.id + idx}
                                         title={bookmark.title}
                                         url={bookmark.url}
                                 />
-                                : <Directory key={bookmark.id +idx}
+                                : <Directory key={bookmark.id + idx}
                                              id={bookmark.id}
                                              title={bookmark.title}
                                              innerDir={bookmark.children}

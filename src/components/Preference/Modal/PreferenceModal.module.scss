@@ -10,6 +10,12 @@
     margin-right: .5rem;
   }
 
+  &__backdrop {
+    backdrop-filter: blur(5px);
+    opacity: 1 !important;
+    background-color: initial;
+  }
+
   &__body {
     width: 960px;
     height: 695px;
