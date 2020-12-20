@@ -1,7 +1,7 @@
 .Dashboard {
   width :100%;
   height: 100%;
-  background-image: url('../../public/image/background/macOsBigsurDark.jpg');
+  background-image: var(--background-image);
   background-repeat: no-repeat;
   background-size: cover;
 
@@ -32,8 +32,10 @@
     flex-direction: row;
 
     &__sidebar {
-      margin-right: 5rem;
+      margin-top: 2rem;
+      margin-right: 2rem;
       position: relative;
+      max-width: 40rem;
 
       &__openBtn {
         position: absolute;

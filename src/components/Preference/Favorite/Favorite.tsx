@@ -8,10 +8,10 @@ import {validURLCheck} from '../../../utils/domain';
 type Props = {
     list: Array<string>,
     setFavoriteItem: (favoriteItem: string) => void,
-    deleteFavoriteItem:(favoriteItem: string) => void,
+    deleteFavoriteItem: (favoriteItem: string) => void,
 };
 
-function Favorite({list, setFavoriteItem,deleteFavoriteItem}: Props) {
+function Favorite({list, setFavoriteItem, deleteFavoriteItem}: Props) {
 
     const [inputFavoriteItem, setInputFavoriteItem] = useState<string>('');
 
@@ -32,7 +32,7 @@ function Favorite({list, setFavoriteItem,deleteFavoriteItem}: Props) {
         <div>
             Link list
             {list.map(item => (
-                <div>{item}<FontAwesomeIcon icon={faTimes} onClick={() => deleteFavoriteItem(item)}/></div>
+                <div key={item}>{item}<FontAwesomeIcon icon={faTimes} onClick={() => deleteFavoriteItem(item)}/></div>
             ))}
             <Input placeholder="Enter your favorite Link"
                    value={inputFavoriteItem}

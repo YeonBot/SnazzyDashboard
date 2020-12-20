@@ -23,6 +23,7 @@ type State = {
         children: Array<any>,
     }>,
     isOpen: boolean,
+    selectedDirTitle: string,
 };
 
 class BookMarkCard extends Component {
@@ -38,6 +39,7 @@ class BookMarkCard extends Component {
     state: State = {
         bookmarkBar: [],
         selectedDir: [],
+        selectedDirTitle: '',
         isOpen: false,
     }
 
@@ -58,6 +60,9 @@ class BookMarkCard extends Component {
     getDirById(bookmarkBar: any, id: number): any {
         for (let i = bookmarkBar.length - 1; i >= 0; i--) {
             if (Number(bookmarkBar[i].id) === id) {
+                this.setState(() => ({
+                    selectedDirTitle: bookmarkBar[i].title
+                }));
                 return bookmarkBar[i].children;
                 break;
             } else if (Number(bookmarkBar[i].id) < id) {
@@ -81,7 +86,7 @@ class BookMarkCard extends Component {
     }
 
     render() {
-        const {bookmarkBar, selectedDir, isOpen} = this.state;
+        const {bookmarkBar, selectedDir, selectedDirTitle,  isOpen} = this.state;
         return (
             <div className={style.BookMarkCard}>
                 {bookmarkBar.map((bookmark, idx) => {
@@ -99,6 +104,7 @@ class BookMarkCard extends Component {
                     }
                 )}
                 <DirModal
+                    title={selectedDirTitle}
                     isOpen={isOpen}
                     toggle={this.toggle}
                     selectedBookmarkBar={selectedDir}

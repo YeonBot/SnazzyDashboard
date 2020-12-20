@@ -1,0 +1,38 @@
+
+:root {
+  --text-color: black;
+  --background-color: white;
+  --background-image: url('public/image/background/bigsur.jpg');
+
+  --preference--color: rgb(55, 53, 47);
+  --preference--background-main: white;
+  --preference--background-sidebar: rgb(247, 246, 243);
+  --preference--background-sidebar-title: rgba(55, 53, 47, 0.6);
+  --preference--background-sidebar-selected: rgba(55, 53, 47, 0.08);
+}
+
+.dark-mode {
+  --text-color: white;
+  --background-color: black;
+  --background-image: url('./public/image/background/macOsBigsurDark.jpg');
+
+  --preference--color: rgba(255, 255, 255, 0.9);
+  --preference--background-main: rgb(47, 52, 55);
+  --preference--background-sidebar: rgb(55, 60, 63);
+  --preference--background-sidebar-title: rgba(255, 255, 255, 0.6);
+  --preference--background-sidebar-selected: rgb(71, 76, 80);
+}
+
+
+//color: #282a36;
+//color: #1D1F27;
+//color: #ff5c57;
+//color: #5AF78E;
+//color:#F3F99D;
+//color: #57c7ff;
+//color :#FF69C1;
+//color:#9AEEFE;
+//color:#F1F1F0;
+//color:#272B36;
+
+

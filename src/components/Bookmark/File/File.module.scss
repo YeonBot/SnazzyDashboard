@@ -6,6 +6,9 @@
   flex-direction: row;
   flex-wrap: wrap;
   align-content: flex-start;
+  cursor: pointer;
+  width: 5rem;
+  height:5rem;
 
   &__img {
     width: 5rem;
@@ -16,9 +19,9 @@
   &__title {
     width: 5rem;
     text-align-last: center;
-    height: 5rem;
+    height: 4rem;
     font-size: .75rem;
-    color: white;
+    color: var(--text-color);
     display: -webkit-box;
     -webkit-line-clamp: 3;
     word-break: keep-all;

@@ -1,5 +1,8 @@
 import React, {useState, useEffect} from 'react';
+import Avatar from 'react-avatar';
 import ReactTooltip from 'react-tooltip';
+
+import {DEFAULT_URL} from '../../../utils/domain';
 
 import {getFaviconUrlFromDomain, getTitleFronDomain} from '../../../utils/domain';
 
@@ -9,10 +12,11 @@ type Props = {
     title?: string,
     url?: string,
     src?: string,
+    propsTooltip?: string,
     onClickFile?: () => void,
 }
 
-function File({title, url, src, onClickFile}: Props) {
+function File({title, url, src, propsTooltip, onClickFile}: Props) {
 
     const [imageSrc, setSrc] = useState<string>('');
     const [tooltip, setTooltip] = useState<string>('');
@@ -23,6 +27,9 @@ function File({title, url, src, onClickFile}: Props) {
             getTitleFronDomain(url).then((title) => {
                 setTooltip(title);
             });
+        }
+        if(propsTooltip) {
+            setTooltip(propsTooltip);
         }
     }, []);
 
@@ -48,7 +55,12 @@ function File({title, url, src, onClickFile}: Props) {
                 rel="noopener"
                 data-for={tooltipId}
                 data-tip={<span>{tooltip}</span>}>
-                    <img className={style.File__img} src={imageSrc}/>
+                {
+                    imageSrc === DEFAULT_URL
+                    ? <Avatar className={style.File__img} size={"5rem"} name={title?.charAt(0)} />
+                    : <img className={style.File__img} src={imageSrc}/>
+                }
+
             </a>
             {title &&
             <div className={style.File__title}>

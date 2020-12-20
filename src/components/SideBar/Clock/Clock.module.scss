@@ -1,13 +1,13 @@
 .Clock {
   &__time {
-    color :white;
+    color :var(--text-color);
     font-size: 4rem;
     font-weight: 400;
     line-height: normal;
   }
 
   &__date {
-    color :white;
+    color :var(--text-color);
     font-size: 1.2rem;
     font-weight: 400;
     line-height: normal;

@@ -36,15 +36,11 @@ class Dashboard extends Component<Props, States> {
         this.setState((prev) => ({sidebarOpen: !sidebarOpen}));
 
         if (sidebarOpen) {
-            // @ts-ignore
-            document.getElementById('sidebarId').classList.remove(style['Dashboard__animation-reset']);
-            // @ts-ignore
-            document.getElementById('sidebarId').classList.add(style.Dashboard__animation);
+            document.getElementById('sidebarId')?.classList.remove(style['Dashboard__animation-reset']);
+            document.getElementById('sidebarId')?.classList.add(style.Dashboard__animation);
         } else {
-            // @ts-ignore
-            document.getElementById('sidebarId').classList.remove(style.Dashboard__animation);
-            // @ts-ignore
-            document.getElementById('sidebarId').classList.add(style['Dashboard__animation-reset']);
+            document.getElementById('sidebarId')?.classList.remove(style.Dashboard__animation);
+            document.getElementById('sidebarId')?.classList.add(style['Dashboard__animation-reset']);
         }
     }
 
