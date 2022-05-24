@@ -47,7 +47,7 @@ export const getFaviconUrlFromDomain = async (domain: string) => {
                 data: {
                     icons = [],
                 }
-            } = await axios.get(`https://favicon.run.goorm.io/allicons.json?url=${originUrl}`);
+            } = await axios.get(`https://faviconico.run.goorm.io/allicons.json?url=${originUrl}`);
 
             let maxHeight: number = 0;
             let tempUrl: string = DEFAULT_URL;
