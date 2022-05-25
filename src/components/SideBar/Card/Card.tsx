@@ -16,7 +16,7 @@ function Card({header,children}: any) {
 }
 
 Card.defaultProps = {
-    header: 'GITHUB CONTRIBUTE',
+    header: 'HEADER',
 }
 
 export default Card;

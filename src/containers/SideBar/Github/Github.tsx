@@ -68,7 +68,7 @@ class Github extends Component<Props, States> {
         const {inputUsername} = this.state;
 
         return (
-            <SideBarCard>
+            <SideBarCard header='GITHUB CONTRIBUTE'>
                 <div id='scroll' className={style.Github__wrapper}>
                     {username
                         ?

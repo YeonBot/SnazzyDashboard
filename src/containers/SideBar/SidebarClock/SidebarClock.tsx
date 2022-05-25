@@ -13,9 +13,6 @@ type State = {
 class SidebarClock extends Component {
     private timerID: number = 0;
 
-    constructor(props:any) {
-        super(props);
-    }
     state: State = {
         months: 0,
         dates: 0,

@@ -4,6 +4,7 @@ import {returntypeof} from "react-redux-typescript";
 
 import SidebarClock from '../SidebarClock';
 import Github from '../Github/';
+import Todo from '../Todo';
 
 import style from './SideBarBody.module.scss';
 
@@ -18,6 +19,7 @@ class SideBarBody extends Component<Props> {
             <div className={style.SideBarBody}>
                 {clockVisible && <SidebarClock/>}
                 {githubVisible && <Github/>}
+                <Todo />
             </div>
         );
     }
