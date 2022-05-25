@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 
-import Clock from "../../../components/SideBar/Clock";
+import Clock from "../../../components/Widget/Clock";
 
 type State = {
     months: number;

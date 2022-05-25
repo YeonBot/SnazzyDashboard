@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import GitHubCalendar from 'react-github-calendar';
 import {Input, Button} from 'reactstrap';
 
-import SideBarCard from "../../../components/SideBar/Card";
+import SideBarCard from "../../../components/Widget/Card";
 
 import style from './Github.module.scss';
 import {RootState} from "../../../modules";
