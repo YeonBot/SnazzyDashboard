@@ -1,6 +1,6 @@
 import * as React from 'react';
 import style from "../Github/Github.module.scss";
-import {Button, Input} from "reactstrap";
+import {Input} from "reactstrap";
 
 type Props = {
     username: string,

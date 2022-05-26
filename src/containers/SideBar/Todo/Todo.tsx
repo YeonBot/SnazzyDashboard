@@ -1,14 +1,16 @@
 import React, {Component} from 'react';
-import GitHubCalendar from 'react-github-calendar';
-import {Input, Button} from 'reactstrap';
 
 import SideBarCard from "../../../components/Widget/Card";
+import TodoAddInput from '../../../components/Widget/TodoAddInput';
+import TodoTask from '../../../components/Widget/TodoTask';
 
-import style from './Github.module.scss';
 import {RootState} from "../../../modules";
-import {changeUsername} from "../../../modules/github";
+import { addTodo } from '../../../modules/todo';
+
 import {returntypeof} from "react-redux-typescript";
 import {connect} from "react-redux";
+
+
 
 type Props = typeof statePropTypes & typeof actionPropTypes & {}
 type States = {
@@ -27,17 +29,27 @@ class Todo extends Component<Props, States> {
 
     render() {
 
+        const {dispatchAddTodo} = this.props;
+
         return (
             <SideBarCard header={"TODO"}>
-                todo
+                <TodoAddInput
+                    addTodo={dispatchAddTodo}
+                />
+                <ul>
+                    <TodoTask />
+                    <TodoTask />
+                </ul>
             </SideBarCard>
         );
     }
 }
 
 const mapStateToProps = (state: RootState) => ({
+
 });
 const mapDispatchToProps = (dispatch: any) => ({
+    dispatchAddTodo: (title: string) => dispatch(addTodo(title)),
 });
 
 const statePropTypes = returntypeof(mapStateToProps);
