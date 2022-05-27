@@ -28,8 +28,7 @@ class Todo extends Component<Props, States> {
     }
 
     render() {
-
-        const {dispatchAddTodo} = this.props;
+        const { dispatchAddTodo, todoList } = this.props;
 
         return (
             <SideBarCard header={"TODO"}>
@@ -37,8 +36,14 @@ class Todo extends Component<Props, States> {
                     addTodo={dispatchAddTodo}
                 />
                 <ul>
-                    <TodoTask />
-                    <TodoTask />
+                    {
+                        todoList.map((todo)=> (
+                            <TodoTask 
+                                todoId={todo.id}
+                                title={todo.title}
+                            />
+                        ))
+                    }
                 </ul>
             </SideBarCard>
         );
@@ -46,7 +51,7 @@ class Todo extends Component<Props, States> {
 }
 
 const mapStateToProps = (state: RootState) => ({
-
+    todoList: state.todo.todoList,
 });
 const mapDispatchToProps = (dispatch: any) => ({
     dispatchAddTodo: (title: string) => dispatch(addTodo(title)),
