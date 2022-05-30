@@ -12,8 +12,8 @@ type TransparencyInputProps = {
 
 function TransparencyInput({value, placeholder, onChange, onKeyDown}: TransparencyInputProps): JSX.Element {
   return (
-    <Input 
-        className={styles.TransparencyInput}
+    <Input
+        cssModule={{ 'form-control': styles.TransparencyInput}}
         value={value}
         placeholder={placeholder}
         onChange={onChange}

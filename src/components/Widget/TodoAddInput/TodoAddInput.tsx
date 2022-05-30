@@ -1,8 +1,6 @@
 import React, {useState} from 'react';
-import { Input } from 'reactstrap';
 
 import TransparencyInput from '../../common/TransparencyInput';
-// import styles from './TodoAddInput.module.scss';
 
 type TodoAddInputProps = {
     addTodo: (title: string) => void,
@@ -19,8 +17,9 @@ export default function TodoAddInput({addTodo}: TodoAddInputProps) {
 
     const handleKeyDown = (e:React.KeyboardEvent<HTMLInputElement>) => {
         const {key} = e;
-        if(key === 'Enter') {
+        if(key === 'Enter' && value) {
             addTodo(value);
+            setValue('');
         }
     }
 

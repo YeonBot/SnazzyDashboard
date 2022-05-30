@@ -7,7 +7,7 @@ import App from './containers/App';
 import rootReducer from './modules';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './App.scss'
+import './App.scss';
 
 declare global {
     interface Window {
