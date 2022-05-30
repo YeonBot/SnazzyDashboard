@@ -4,6 +4,7 @@ import { Todo as TodoType } from '../common/type';
 // constant
 export const ADD_TODO = 'ADD_TODO' as const;
 export const UPDATE_TODO = 'UPDATE_TODO' as const;
+export const DELETE_TODO = 'DELETE_TODO' as const;
 
 // action
 export const addTodo = (title: string) => ({
@@ -19,11 +20,19 @@ export const updateTodo = (id: number, obj: object) => ({
         id,
         obj,
     }
+});
+
+export const deleteTodo = (id:number) =>  ({
+    type: DELETE_TODO,
+    payload: {
+        id,
+    }
 })
 
 type TodoAction =
     | ReturnType<typeof addTodo>
     | ReturnType<typeof updateTodo>
+    | ReturnType<typeof deleteTodo>
 
 export type TodoState = {
     todoList: Array<TodoType>;
@@ -40,11 +49,13 @@ function todo(state: TodoState = initialState, action: TodoAction) {
                 const title = action.payload.title;
                 const id = Date.now();
                 const todo = {id, title, checked: false};
-                addTodoList(todo);
+
+                const newTodoList = [todo, ...state.todoList];
+                updateTodoList(newTodoList);
 
                 return {
                     ...state,
-                    todoList: [todo, ...state.todoList],
+                    todoList: newTodoList,
                 };
             }
         case UPDATE_TODO:
@@ -61,8 +72,6 @@ function todo(state: TodoState = initialState, action: TodoAction) {
                     }
                     return todo;
                 });
-                
-
                 updateTodoList(newTodoList);
 
                 return {
@@ -70,6 +79,19 @@ function todo(state: TodoState = initialState, action: TodoAction) {
                     todoList: newTodoList,
                 };
             }
+        case DELETE_TODO:
+                {
+                    const { id } = action.payload;
+                    const { todoList } = state;
+    
+                    const newTodoList = todoList.filter(todo => (todo.id !== id));
+                    updateTodoList(newTodoList);
+    
+                    return {
+                        ...state,
+                        todoList: newTodoList,
+                    };
+                }
         default:
             return state;
     }

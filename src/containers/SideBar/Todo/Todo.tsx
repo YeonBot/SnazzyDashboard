@@ -5,7 +5,7 @@ import TodoAddInput from '../../../components/Widget/TodoAddInput';
 import TodoTask from '../../../components/Widget/TodoTask';
 
 import {RootState} from "../../../modules";
-import { addTodo, updateTodo } from '../../../modules/todo';
+import { addTodo, updateTodo, deleteTodo } from '../../../modules/todo';
 
 import {returntypeof} from "react-redux-typescript";
 import {connect} from "react-redux";
@@ -28,7 +28,7 @@ class Todo extends Component<Props, States> {
     }
 
     render() {
-        const { dispatchAddTodo, dispatchUpdateTodo, todoList } = this.props;
+        const { dispatchAddTodo, dispatchUpdateTodo, dispatchDeleteTodo, todoList } = this.props;
 
         return (
             <SideBarCard header={"TODO"}>
@@ -44,6 +44,7 @@ class Todo extends Component<Props, States> {
                                 title={todo.title}
                                 checked={todo.checked}
                                 updateTodo={dispatchUpdateTodo}
+                                deleteTodo={dispatchDeleteTodo}
                             />
                         ))
                     }
@@ -59,6 +60,7 @@ const mapStateToProps = (state: RootState) => ({
 const mapDispatchToProps = (dispatch: any) => ({
     dispatchAddTodo: (title: string) => dispatch(addTodo(title)),
     dispatchUpdateTodo: (id: number, obj: object) => dispatch(updateTodo(id, obj)),
+    dispatchDeleteTodo: (id: number) => dispatch(deleteTodo(id)),
 });
 
 const statePropTypes = returntypeof(mapStateToProps);
