@@ -72,3 +72,7 @@ export const addTodoList = (todo: TodoType) => {
     todoList.push(todo);
     localStorage.setItem(TODO_LIST, JSON.stringify(todoList));
 }
+
+export const updateTodoList = (todoList: Array<TodoType>) => {
+    localStorage.setItem(TODO_LIST, JSON.stringify(todoList));
+}
