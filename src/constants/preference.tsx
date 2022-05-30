@@ -2,7 +2,8 @@ import React from 'react';
 import PreferenceClock from '../containers/Preference/PreferenceClock';
 import PreferenceGithub from '../containers/Preference/PreferenceGithub';
 import PreferenceFavorite from '../containers/Preference/PreferenceFavorite';
-import { faClock, faMoon, faStar} from "@fortawesome/free-regular-svg-icons"
+import PreferenceTodo from '../containers/Preference/PreferenceTodo';
+import { faClock, faMoon, faStar ,faCheckSquare} from "@fortawesome/free-regular-svg-icons"
 import { faGithub } from "@fortawesome/free-brands-svg-icons"
 
 export const SIDEBAR = {
@@ -18,6 +19,12 @@ export const SIDEBAR = {
             LABEL: 'Github',
             ICON: faGithub,
             COMP: <PreferenceGithub/>,
+        },
+        TODO: {
+            KEY: 'TODO',
+            LABEL: 'TODO',
+            ICON: faCheckSquare,
+            COMP: <PreferenceTodo/>,
         }
     },
     FAVORITE: {

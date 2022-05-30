@@ -1,8 +1,11 @@
+import { Todo as TodoType } from '../common/type';
+
 const CLOCK_VISIBLE = 'CLOCK_VISIBLE';
 const GITHUB_USERNAME = 'GITHUB_USERNAME';
 const GITHUB_VISIBLE = 'GITHUB_VISIBLE';
 const FAVORITE_LIST = 'FAVORITE_LIST';
 const DARK_MODE = 'DARK_MODE';
+const TODO_LIST = 'TODO_LIST';
 
 export const getClockVisible = () => {
     const stringVisible: string = localStorage.getItem(CLOCK_VISIBLE) || 'true';
@@ -49,11 +52,27 @@ export const updateFavoriteList = (favoriteList: Array<string>) => {
 };
 
 export const getDarkMode = () => {
-    const stringDarkMode: string = localStorage.getItem(DARK_MODE) || 'true';
-    return JSON.parse(stringDarkMode);
+    const daroModeJson: string = localStorage.getItem(DARK_MODE) || 'true';
+    return JSON.parse(daroModeJson);
 };
 
-export const setDarkMode = (darkMode: boolean) => {
-    const stringDarkMode = JSON.stringify(darkMode);
-    localStorage.setItem(DARK_MODE, stringDarkMode);
+export const setDarkMode = (isDarkMode: boolean) => {
+    const daroModeJson = JSON.stringify(isDarkMode);
+    localStorage.setItem(DARK_MODE, daroModeJson);
 };
+
+export const getTodoList = () => {
+    const todoJson = localStorage.getItem(TODO_LIST) || '[]';
+    return JSON.parse(todoJson);
+}
+
+export const addTodoList = (todo: TodoType) => {
+    const todoJson = localStorage.getItem(TODO_LIST) || '[]';
+    const todoList = JSON.parse(todoJson);
+    todoList.push(todo);
+    localStorage.setItem(TODO_LIST, JSON.stringify(todoList));
+}
+
+export const updateTodoList = (todoList: Array<TodoType>) => {
+    localStorage.setItem(TODO_LIST, JSON.stringify(todoList));
+}
