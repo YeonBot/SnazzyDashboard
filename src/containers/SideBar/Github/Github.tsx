@@ -74,8 +74,7 @@ class Github extends Component<Props, States> {
                         ?
                         <div className={style.Github__scroll}>
                             <GitHubCalendar username={username}
-                                            fontSize={14}
-                                            showTotalCount={false}/>
+                                            fontSize={14}/>
                         </div>
                         : <div className={style.Github__Input_wrapper}>
                             <Input placeholder="Enter Github name"
