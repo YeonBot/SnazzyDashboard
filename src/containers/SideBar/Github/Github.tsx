@@ -1,20 +1,36 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import GitHubCalendar from 'react-github-calendar';
-import {Input, Button} from 'reactstrap';
+import { Input, Button } from 'reactstrap';
 
 import SideBarCard from "../../../components/Widget/Card";
-import {getGithubUserName, setGithubUserName} from '../../../utils/preference';
 
 import style from './Github.module.scss';
-import {RootState} from "../../../modules";
-import {changeUsername} from "../../../modules/github";
-import {returntypeof} from "react-redux-typescript";
-import {connect} from "react-redux";
+import { RootState } from "../../../modules";
+import { changeUsername } from "../../../modules/github";
+import { returntypeof } from "react-redux-typescript";
+import { connect } from "react-redux";
 
 type Props = typeof statePropTypes & typeof actionPropTypes & {}
 type States = {
     inputUsername: string,
 }
+
+const selectLastHalfYear = (contributions: any) => {
+    const currentYear = new Date().getFullYear();
+    const currentMonth = new Date().getMonth();
+    const shownMonths = 6;
+  
+    return contributions.filter((day: any) => {
+      const date = new Date(day.date);
+      const monthOfDay = date.getMonth();
+  
+      return (
+        date.getFullYear() === currentYear &&
+        monthOfDay > currentMonth - shownMonths &&
+        monthOfDay <= currentMonth
+      );
+    });
+  };
 
 class Github extends Component<Props, States> {
 
@@ -35,15 +51,18 @@ class Github extends Component<Props, States> {
         this.scrollEndPoint();
     }
 
-    setUserName() {
-        const {inputUsername} = this.state;
-        const {dispatchChangeUsername} = this.props;
-        dispatchChangeUsername(inputUsername);
+    componentDidUpdate() {
         this.scrollEndPoint();
     }
 
+    setUserName() {
+        const { inputUsername } = this.state;
+        const { dispatchChangeUsername } = this.props;
+        dispatchChangeUsername(inputUsername);
+    }
+
     onChangeInput(e: any) {
-        const {value: inputUsername} = e.target;
+        const { value: inputUsername } = e.target;
 
         this.setState(() => ({
             inputUsername,
@@ -64,8 +83,8 @@ class Github extends Component<Props, States> {
     }
 
     render() {
-        const {username} = this.props
-        const {inputUsername} = this.state;
+        const { username } = this.props
+        const { inputUsername } = this.state;
 
         return (
             <SideBarCard header='GITHUB CONTRIBUTE'>
@@ -73,18 +92,20 @@ class Github extends Component<Props, States> {
                     {username
                         ?
                         <div className={style.Github__scroll}>
-                            <GitHubCalendar username={username}
-                                            fontSize={14}
-                                            showTotalCount={false}/>
+                            <GitHubCalendar
+                                username={username}
+                                transformData={selectLastHalfYear}
+                                hideTotalCount
+                                hideColorLegend />
                         </div>
                         : <div className={style.Github__Input_wrapper}>
                             <Input placeholder="Enter Github name"
-                                   value={inputUsername}
-                                   onChange={this.onChangeInput}
-                                   onKeyPress={this.handleKeyPress}
+                                value={inputUsername}
+                                onChange={this.onChangeInput}
+                                onKeyPress={this.handleKeyPress}
                             />
                             <Button color="dark"
-                                    onClick={this.setUserName}
+                                onClick={this.setUserName}
                             >Ok</Button>
                         </div>
                     }
