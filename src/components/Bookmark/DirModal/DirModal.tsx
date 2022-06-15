@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {Button, Modal, ModalBody, ModalHeader} from 'reactstrap';
+import {Button, Modal, ModalBody} from 'reactstrap';
 
 import Directory from "../Directory";
 import File from "../File";

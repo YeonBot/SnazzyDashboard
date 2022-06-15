@@ -1,10 +1,10 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import Avatar from 'react-avatar';
 import ReactTooltip from 'react-tooltip';
 
-import {DEFAULT_URL} from '../../../utils/domain';
+import { DEFAULT_URL } from '../../../utils/domain';
 
-import {getFaviconUrlFromDomain, getTitleFronDomain} from '../../../utils/domain';
+import { getFaviconUrlFromDomain, getTitleFronDomain } from '../../../utils/domain';
 
 import style from './File.module.scss';
 
@@ -16,7 +16,7 @@ type Props = {
     onClickFile?: () => void,
 }
 
-function File({title, url, src, propsTooltip, onClickFile}: Props) {
+function File({ title, url, src, propsTooltip, onClickFile }: Props) {
 
     const [imageSrc, setSrc] = useState<string>('');
     const [tooltip, setTooltip] = useState<string>('');
@@ -28,7 +28,7 @@ function File({title, url, src, propsTooltip, onClickFile}: Props) {
                 setTooltip(title);
             });
         }
-        if(propsTooltip) {
+        if (propsTooltip) {
             setTooltip(propsTooltip);
         }
     }, []);
@@ -57,22 +57,28 @@ function File({title, url, src, propsTooltip, onClickFile}: Props) {
                 data-tip={<span>{tooltip}</span>}>
                 {
                     imageSrc === DEFAULT_URL
-                    ? <Avatar className={style.File__img} size={"5rem"} name={title?.charAt(0)} />
-                    : <img className={style.File__img} src={imageSrc}/>
+                        ? <Avatar
+                            className={style.File__img}
+                            size={"2.5rem"}
+                            name={title?.charAt(0)} />
+                        : <img 
+                            className={style.File__img} 
+                            src={imageSrc} 
+                            alt={title}/>
                 }
 
             </a>
             {title &&
-            <div className={style.File__title}>
-                {title}
-            </div>
+                <div className={style.File__title}>
+                    {title}
+                </div>
             }
             {tooltip &&
                 <ReactTooltip id={tooltipId}
-                              className={style.File__tooltip}
-                              data-html={true}
-                              effect='solid'
-                              offset={{top: 10}}
+                    className={style.File__tooltip}
+                    data-html={true}
+                    effect='solid'
+                    offset={{ top: 10 }}
                 >
                     <span className={style.File__tooltip__inner}>{tooltip}</span>
                 </ReactTooltip>

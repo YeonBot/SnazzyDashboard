@@ -1,5 +1,7 @@
 .Card {
   border-radius: 10px;
+  width: 20rem;
+
   &__header {
     color: var(--preference--color);
     background-color: var(--preference--background-sidebar);
@@ -11,8 +13,6 @@
     color: var(--preference--color);
     border-radius: 0 0 10px 10px;
     padding: .5rem 1rem .5rem 1rem;
-
-    //box-shadow: 0 0 2px rgba(200,200,200,1), 0 0 4px black, 0 0 30px rgba(0,0,0,.5);
     background-color: rgba(100,100,100,0.25);
   }
 }
