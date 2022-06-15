@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {Input} from "reactstrap";
+import { Input, FormGroup } from "reactstrap";
 
 import GithubUsername from '../GithubUsername';
 
@@ -12,13 +12,17 @@ type Props = {
     handleChangeUsername: (username: string) => void,
 };
 
-function Github({visible, toggleVisible, username, handleChangeUsername}: Props) {
+function Github({ visible, toggleVisible, username, handleChangeUsername }: Props) {
     return (
         <div>
             Visible
-            <Input type="switch" id="githubVisibleSwitch" name="customSwitch"
-                         checked={visible}
-                         onChange={toggleVisible}/>
+            <FormGroup switch>
+                <Input type="switch"
+                    id="githubVisibleSwitch"
+                    name="customSwitch"
+                    checked={visible}
+                    onChange={toggleVisible} />
+            </FormGroup>
             Username
             <GithubUsername
                 username={username}
