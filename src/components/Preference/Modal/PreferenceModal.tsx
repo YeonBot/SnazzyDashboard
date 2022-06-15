@@ -38,15 +38,18 @@ function PreferenceModal({ isOpen, toggle, darkMode, toggleDarkMode }: Props) {
                             return (
                                 <div key={sidebarkey}
                                     className={cx('PreferenceModal__sidebar__item',
-                                        { "PreferenceModal__sidebar__item-selected": sidebarkey === selectedSideBarKey })
-                                    }>
-                                    <div onClick={() => {
+                                        { "PreferenceModal__sidebar__item-selected": sidebarkey === selectedSideBarKey }
+                                    )
+                                    }
+                                    onClick={() => {
                                         changeSideBarKey(sidebarkey)
                                         changeComp(SIDEBAR.WIDGET[sidebarkey as keyof typeof SIDEBAR.WIDGET].COMP)
-                                    }}>
-                                        <FontAwesomeIcon icon={ICON} size='lg' />
-                                        {SIDEBAR.WIDGET[sidebarkey as keyof typeof SIDEBAR.WIDGET].LABEL}
-                                    </div>
+                                    }}
+                                >
+
+                                    <FontAwesomeIcon icon={ICON} size='lg' />
+                                    {SIDEBAR.WIDGET[sidebarkey as keyof typeof SIDEBAR.WIDGET].LABEL}
+
                                 </div>
                             )
                         })
@@ -62,14 +65,13 @@ function PreferenceModal({ isOpen, toggle, darkMode, toggleDarkMode }: Props) {
                                 <div key={sidebarkey}
                                     className={cx('PreferenceModal__sidebar__item',
                                         { "PreferenceModal__sidebar__item-selected": sidebarkey === selectedSideBarKey })
-                                    }>
-                                    <div onClick={() => {
+                                    }
+                                    onClick={() => {
                                         changeSideBarKey(sidebarkey)
                                         changeComp(SIDEBAR.FAVORITE[sidebarkey as keyof typeof SIDEBAR.FAVORITE].COMP)
                                     }}>
-                                        <FontAwesomeIcon icon={ICON} size='lg' />
-                                        {SIDEBAR.FAVORITE[sidebarkey as keyof typeof SIDEBAR.FAVORITE].LABEL}
-                                    </div>
+                                    <FontAwesomeIcon icon={ICON} size='lg' />
+                                    {SIDEBAR.FAVORITE[sidebarkey as keyof typeof SIDEBAR.FAVORITE].LABEL}
                                 </div>
                             )
                         })
@@ -83,7 +85,7 @@ function PreferenceModal({ isOpen, toggle, darkMode, toggleDarkMode }: Props) {
                             {SIDEBAR.DARKMODE.LABEL}
                         </div>
                         <FormGroup switch>
-                            <Input 
+                            <Input
                                 type="switch"
                                 id="themeSwitch"
                                 name="customSwitch"
