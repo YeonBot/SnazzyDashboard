@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {CustomInput} from "reactstrap";
+import {Input} from "reactstrap";
 
 type Props = {
     visible: boolean,
@@ -10,7 +10,7 @@ function Clock({visible, toggleVisible}: Props) {
     return (
         <div>
             Visible
-            <CustomInput type="switch" id="clockVisibleSwitch" name="customSwitch"
+            <Input type="switch" id="clockVisibleSwitch" name="customSwitch"
                          checked={visible}
                          onChange={toggleVisible}/>
         </div>

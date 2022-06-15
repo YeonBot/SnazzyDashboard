@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Modal, ModalBody, CustomInput} from 'reactstrap';
+import {Modal, ModalBody, Input} from 'reactstrap';
 import classNames from 'classnames/bind';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome"
 
@@ -82,7 +82,7 @@ function PreferenceModal({isOpen, toggle, darkMode, toggleDarkMode}: Props) {
                             <FontAwesomeIcon icon={SIDEBAR.DARKMODE.ICON} size='lg'/>
                             {SIDEBAR.DARKMODE.LABEL}
                         </div>
-                        <CustomInput type="switch" id="exampleCustomSwitch" name="customSwitch"
+                        <Input type="switch" id="exampleCustomSwitch" name="customSwitch"
                                      checked={darkMode}
                                      onChange={toggleDarkMode}
                         />

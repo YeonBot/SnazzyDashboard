@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { CustomInput } from 'reactstrap';
+import { FormGroup, Label, Input } from 'reactstrap';
 import {Todo as TodoType} from '../../../common/type';
 
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome"
@@ -33,14 +33,17 @@ export default function TodoTask({id, title, checked, updateTodo, deleteTodo}: T
     return <li className={styles.todoTask}
             onMouseEnter={()=> setHovering(true)}
             onMouseLeave={()=> setHovering(false)}>
-          <CustomInput 
-            id={id}
-            data-id={id}
-            type="checkbox"
-            label={title}
-            checked={!!checked} 
-            onClick={handleUpdateClick}
-            />
+                <FormGroup check>
+                    <Label check>
+                        <Input 
+                        data-id={id}
+                        type="checkbox"
+                        checked={!!checked} 
+                        onClick={handleUpdateClick}
+                        /> {title}
+                    </Label>
+                </FormGroup>
+          
             {
                 isHovering && <FontAwesomeIcon 
                     data-id={id}

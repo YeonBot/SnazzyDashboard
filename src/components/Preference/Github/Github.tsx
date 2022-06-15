@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {Button, CustomInput, Input} from "reactstrap";
+import {Input} from "reactstrap";
 
 import GithubUsername from '../GithubUsername';
 
@@ -16,7 +16,7 @@ function Github({visible, toggleVisible, username, handleChangeUsername}: Props)
     return (
         <div>
             Visible
-            <CustomInput type="switch" id="githubVisibleSwitch" name="customSwitch"
+            <Input type="switch" id="githubVisibleSwitch" name="customSwitch"
                          checked={visible}
                          onChange={toggleVisible}/>
             Username
