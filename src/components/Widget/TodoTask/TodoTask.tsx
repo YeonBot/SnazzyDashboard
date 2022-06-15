@@ -27,7 +27,6 @@ export default function TodoTask({id, title, checked, updateTodo, deleteTodo}: T
     const handleDeleteClick = (e: any) => {
         const { id } = e.target.closest('svg').dataset;
         
-        console.log(e.target, id, parseInt(id));
         deleteTodo(parseInt(id));
     }
 
