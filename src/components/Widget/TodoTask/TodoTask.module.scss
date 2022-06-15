@@ -1,10 +1,22 @@
 .todoTask {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     flex-direction: row;
     justify-content: space-between;
+    padding: 3px 0 2px 0;
 
-    &__delete_btn {
-        color: grey
+    &__checkbox {
+        position: relative;
+        top: -3px;
+    }
+
+    &__title {
+        word-wrap: break-word;
+        width: calc(288px - 40px);
+    }
+
+    &__more {
+        display: flex;
+        width: 1rem;
     }
 }
