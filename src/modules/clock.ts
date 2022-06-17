@@ -1,4 +1,4 @@
-import { getClockVisible, setClockVisible } from '../utils/preference';
+import { getClockVisible, setClockVisible } from '@utils/preference';
 
 export const TOGGLE_CLOCK_VISIBLE = 'TOGGLE_CLOCK_VISIBLE' as const;
 

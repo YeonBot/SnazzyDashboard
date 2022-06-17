@@ -2,10 +2,10 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { returntypeof } from 'react-redux-typescript';
 
-import Favorite from '../../../components/Preference/Favorite';
-import { setFavoriteItem, deleteFavoriteItem } from '../../../modules/favorite';
+import Favorite from '@components/preference/Favorite';
+import { setFavoriteItem, deleteFavoriteItem } from '@modules/favorite';
 
-import { RootState } from '../../../modules';
+import { RootState } from '@modules/index';
 
 const mapStateToProps = (state: RootState) => ({
   list: state.favorite.list,

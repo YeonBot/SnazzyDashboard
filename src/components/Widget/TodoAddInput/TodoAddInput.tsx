@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import TransparencyInput from '../../common/TransparencyInput';
+import TransparencyInput from '@components/common/TransparencyInput';
 
 type TodoAddInputProps = {
   addTodo: (title: string) => void,

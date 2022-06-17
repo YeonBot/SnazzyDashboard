@@ -1,4 +1,4 @@
-import { Todo as TodoType } from '../common/type';
+import { Todo as TodoType } from '@common/type';
 
 const CLOCK_VISIBLE = 'CLOCK_VISIBLE';
 const GITHUB_USERNAME = 'GITHUB_USERNAME';

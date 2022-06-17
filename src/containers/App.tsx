@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { returntypeof } from 'react-redux-typescript';
 import { connect } from 'react-redux';
-import Dashboard from './Dashboard';
+import Dashboard from '@containers/Dashboard';
 
 const mapStateToProps = (state: any) => ({
   darkMode: state.darkMode.darkMode,

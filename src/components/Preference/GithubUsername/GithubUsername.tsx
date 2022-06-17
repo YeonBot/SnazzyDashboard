@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { Input } from 'reactstrap';
-import style from '../Github/Github.module.scss';
 
 type Props = {
   username: string,
@@ -9,7 +8,7 @@ type Props = {
 
 function GithubUsername({ username, handleChangeUsername }: Props) {
   return (
-    <div className={style.GithubUsername}>
+    <div>
       <Input
         placeholder="Enter your Github name"
         value={username}

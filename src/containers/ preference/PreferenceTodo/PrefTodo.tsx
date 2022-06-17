@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import Clock from '../../../components/Preference/Clock';
-import { toggleVisible } from '../../../modules/clock';
+import Clock from '@components/preference/Clock';
+import { toggleVisible } from '@modules/clock';
 
 type Props = {
   visible: boolean,
@@ -24,6 +24,7 @@ class PrefClock extends React.PureComponent<Props> {
 const mapStateToProps = (state: any) => ({
   visible: state.clock.visible,
 });
+
 const mapDispatchToProps = (dispatch: any) => ({
   dispatchToggleVisible: () => dispatch(toggleVisible()),
 });

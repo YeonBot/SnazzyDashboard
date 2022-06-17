@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { returntypeof } from 'react-redux-typescript';
 
-import SidebarClock from '../SidebarClock';
-import Github from '../Github';
-import Todo from '../Todo';
+import SidebarClock from '@containers/sideBar/SidebarClock';
+import Github from '@containers/sideBar/Github';
+import Todo from '@containers/sideBar/Todo';
 
 import style from './SideBarBody.module.scss';
 

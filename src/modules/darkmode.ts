@@ -1,4 +1,4 @@
-import { getDarkMode, setDarkMode } from '../utils/preference';
+import { getDarkMode, setDarkMode } from '@utils/preference';
 
 export const TOGGLE_DARK_MODE = 'TOGGLE_DARK_MODE' as const;
 

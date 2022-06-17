@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { DATE_ARR } from '../../../constants/date';
+import { DATE_ARR } from '@constants/date';
 
 import style from './Clock.module.scss';
 

@@ -2,10 +2,10 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { returntypeof } from 'react-redux-typescript';
 
-import Github from '../../../components/Preference/Github';
-import { toggleVisible, changeUsername } from '../../../modules/github';
+import Github from '@components/preference/Github';
+import { toggleVisible, changeUsername } from '@modules/github';
 
-import { RootState } from '../../../modules';
+import { RootState } from '@modules/index';
 
 const mapStateToProps = (state: RootState) => ({
   visible: state.github.visible,

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 import Avatar from 'react-avatar';
-import { DEFAULT_URL, getFaviconUrlFromDomain } from '../../../utils/domain';
+import { DEFAULT_URL, getFaviconUrlFromDomain } from '@utils/domain';
 
 import style from './Directory.module.scss';
 

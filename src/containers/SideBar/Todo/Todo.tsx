@@ -2,12 +2,11 @@ import React, { Component } from 'react';
 
 import { returntypeof } from 'react-redux-typescript';
 import { connect } from 'react-redux';
-import SideBarCard from '../../../components/Widget/Card';
-import TodoAddInput from '../../../components/Widget/TodoAddInput';
-import TodoTask from '../../../components/Widget/TodoTask';
-
-import { RootState } from '../../../modules';
-import { addTodo, updateTodo, deleteTodo } from '../../../modules/todo';
+import SideBarCard from '@components/widget/Card';
+import TodoAddInput from '@components/widget/TodoAddInput';
+import TodoTask from '@components/widget/TodoTask';
+import { addTodo, updateTodo, deleteTodo } from '@modules/todo';
+import { RootState } from '@modules/index';
 
 const mapStateToProps = (state: RootState) => ({
   todoList: state.todo.todoList,

@@ -1,6 +1,6 @@
 import {
   getGithubVisible, setGithubVisible, getGithubUserName, setGithubUserName,
-} from '../utils/preference';
+} from '@utils/preference';
 
 export const TOGGLE_GITHUB_VISIBLE = 'TOGGLE_GITHUB_VISIBLE' as const;
 export const CHANGE_GITHUB_USERNAME = 'CHANGE_GITHUB_USERNAME' as const;

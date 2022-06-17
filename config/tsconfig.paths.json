@@ -1,0 +1,31 @@
+{
+  "compilerOptions": {
+    "baseUrl": "../",
+    "paths": {
+      "@chromeAPI/*": [
+        "src/chromeAPI/*"
+      ],
+      "@common/*": [
+        "src/common/*"
+      ],
+      "@components/*": [
+        "src/components/*"
+      ],
+      "@constants/*": [
+        "src/constants/*"
+      ],
+      "@containers/*": [
+        "src/containers/*"
+      ],
+      "@modules/*": [
+        "src/modules/*"
+      ],
+      "@public/*": [
+        "src/public/*"
+      ],
+      "@utils/*": [
+        "src/utils/*"
+      ]
+    }
+  }
+}

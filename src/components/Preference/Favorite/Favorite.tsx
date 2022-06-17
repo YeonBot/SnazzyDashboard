@@ -3,7 +3,7 @@ import { Input } from 'reactstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 
-import { validURLCheck } from '../../../utils/domain';
+import { validURLCheck } from '@utils/domain';
 
 type Props = {
   list: Array<string>,

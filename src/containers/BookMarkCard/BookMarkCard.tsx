@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import Directory from '../../components/Bookmark/Directory';
-import File from '../../components/Bookmark/File';
-import DirModal from '../../components/Bookmark/DirModal';
+import Directory from '@components/bookmark/Directory';
+import File from '@components/bookmark/File';
+import DirModal from '@components/bookmark/DirModal';
 
-import { getTree } from '../../chromeAPI/bookmark';
+import { getTree } from '@chromeAPI/bookmark';
 
 import style from './BookMarkCard.module.scss';
 
