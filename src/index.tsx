@@ -4,30 +4,30 @@ import './App.scss';
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import {Provider} from 'react-redux';
-import {createStore, compose} from 'redux';
+import { Provider } from 'react-redux';
+import { createStore, compose } from 'redux';
 
 import App from './containers/App';
-import rootReducer from './modules';
+import rootReducer from './modules/index';
 
 declare global {
-    interface Window {
-        __REDUX_DEVTOOLS_EXTENSION_COMPOSE__?: typeof compose;
-    }
+  // eslint-disable-next-line no-unused-vars
+  interface Window {
+    __REDUX_DEVTOOLS_EXTENSION_COMPOSE__?: typeof compose;
+  }
 }
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const store = createStore(
-    rootReducer
-    ,composeEnhancers()
+  rootReducer,
+  composeEnhancers(),
 );
 
 ReactDOM.render(
-    <Provider store={store}>
-        <React.StrictMode>
-            <App/>
-        </React.StrictMode>
-    </Provider>,
-    document.getElementById('root')
+  <Provider store={store}>
+    <React.StrictMode>
+      <App />
+    </React.StrictMode>
+  </Provider>,
+  document.getElementById('root'),
 );
-

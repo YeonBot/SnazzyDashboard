@@ -1,27 +1,30 @@
 .FavoriteCard {
-  box-shadow: 0 0 2px rgba(200,200,200,1), 0 0 4px black, 0 0 30px rgba(0,0,0,.5);
+  box-shadow: 0 0 2px rgba(200, 200, 200, 1), 0 0 4px black, 0 0 30px rgba(0, 0, 0, .5);
   border-radius: 18px;
-  background-color: rgba(100,100,100,0.25);
+  background-color: rgba(100, 100, 100, 0.25);
 
   height: 100%;
   flex-direction: row;
   display: flex;
 
-  & > * {
+  &>* {
     align-self: center;
     text-align: -webkit-center;
-    & > a {
-      margin : .75rem 0.5rem;
+
+    &>a {
+      margin: .75rem 0.5rem;
       width: 2.5rem;
       height: 2.5rem;
       border-radius: 10px;
-      & > img {
+
+      &>img {
         width: 2.5rem;
         height: 2.5rem;
         border-radius: 10px;
       }
     }
-    & > div {
+
+    &>div {
       height: 1rem;
       -webkit-box-pack: center;
     }

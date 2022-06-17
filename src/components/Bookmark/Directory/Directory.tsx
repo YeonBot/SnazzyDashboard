@@ -1,61 +1,59 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 
-import {DEFAULT_URL, getFaviconUrlFromDomain} from '../../../utils/domain';
+import Avatar from 'react-avatar';
+import { DEFAULT_URL, getFaviconUrlFromDomain } from '../../../utils/domain';
 
 import style from './Directory.module.scss';
-import Avatar from "react-avatar";
 
 type Props = {
-    id: number,
-    title: string;
-    innerDir: Array<any>;
-    onClickDir: (key: number) => void;
+  id: number,
+  title: string;
+  innerDir: Array<any>;
+  onClickDir: (id: number) => void;
 }
 
-function Directory({title, innerDir, onClickDir, id}: Props) {
+function Directory({
+  title, innerDir, id, onClickDir,
+}: Props) {
+  const [srcList, setSrcList] = useState<string[]>([]);
 
-    const [srcList, setSrcList] = useState<string[]>([]);
+  const setInnerIconToDir = () => {
+    const getSrcPromises = innerDir
+      .slice(0, 16)
+      .map((dir) => {
+        if (dir.url) {
+          return getFaviconUrlFromDomain(dir.url);
+        }
+        // return directory image ..
+        return '/images/macGenericFolderIcon.png';
+      });
 
-    useEffect(() => {
-        setInnerIconToDir();
-    }, []);
+    Promise.all(getSrcPromises)
+      .then((srcRet: string[]) => {
+        setSrcList(srcRet);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
-    const setInnerIconToDir = () => {
-        const getSrcPromises = innerDir.filter((dir, idx) => {
-            return idx < 16;
-        }).map((dir) => {
-            if (dir.url) {
-                return getFaviconUrlFromDomain(dir.url);
-            }
-            // return directory image ..
-            return '/images/macGenericFolderIcon.png';
-        });
+  useEffect(() => {
+    setInnerIconToDir();
+  }, []);
 
-        Promise.all(getSrcPromises)
-            .then((srcRet: string[]) => {
-                setSrcList(srcRet);
-            })
-            .catch((err) => {
-                console.log(err);
-            })
-    }
+  return (
+    <div role="button" tabIndex={0} onClick={() => onClickDir(id)} onKeyPress={() => onClickDir(id)}>
+      <div className={style.Directory}>
+        {srcList.map((src, idx) => (src === DEFAULT_URL
+          ? <Avatar key={innerDir[idx].id} className={style.Directory__src} size="0.85rem" name={title?.charAt(0)} />
+          : <img key={innerDir[idx].id} referrerPolicy="no-referrer" className={style.Directory__src} src={src} alt=" " />))}
+      </div>
 
-    return (
-        <span onClick={() => onClickDir(id)}>
-            <div className={style.Directory}>
-                {srcList.map((src, idx) => {
-                    return src === DEFAULT_URL
-                        ? <Avatar key={`${src}_${idx}`} className={style.Directory__src} size={"0.85rem"} name={title?.charAt(0)}/>
-                        : <img key={`${src}_${idx}`} className={style.Directory__src} src={src}/>
-                })}
-            </div>
-
-            <div className={style.Directory__title}>
-                {title}
-            </div>
-        </span>
-
-    );
+      <div className={style.Directory__title}>
+        {title}
+      </div>
+    </div>
+  );
 }
 
 export default Directory;

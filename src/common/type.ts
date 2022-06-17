@@ -1,6 +1,5 @@
-
 export interface Todo {
-    checked: boolean | undefined;
-    id: number,
-    title: string,
+  checked: boolean | undefined;
+  id: number,
+  title: string,
 }

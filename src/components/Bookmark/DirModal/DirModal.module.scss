@@ -1,8 +1,8 @@
 .DirModal {
   align-self: center;
-  max-width:47rem;
+  max-width: 47rem;
 
-  & > * {
+  &>* {
     background-color: inherit;
     border: none;
     align-items: center;
@@ -27,6 +27,7 @@
     left: 0;
     opacity: 20%;
   }
+
   &__button_right {
     position: absolute;
     right: 0;
@@ -38,8 +39,8 @@
     height: 40rem;
     padding: 2.5rem;
     //background-color: rgba(50,50,50,0.75);
-    box-shadow: 0 0 2px rgba(200,200,200,1), 0 0 4px black, 0 0 30px rgba(0,0,0,.5);
-    background-color: rgba(50,50,50,0.7);
+    box-shadow: 0 0 2px rgba(200, 200, 200, 1), 0 0 4px black, 0 0 30px rgba(0, 0, 0, .5);
+    background-color: rgba(50, 50, 50, 0.7);
     border-radius: 70px;
 
     display: grid;
@@ -49,8 +50,8 @@
 
     overflow-y: hidden;
 
-    & > *:nth-child(4n+0){
-      & > * {
+    &>*:nth-child(4n+0) {
+      &>* {
         margin-right: 0;
       }
     }

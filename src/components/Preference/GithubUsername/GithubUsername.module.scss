@@ -3,7 +3,7 @@
   display: flex;
   padding: .5rem;
 
-  & > *:not(:last-child) {
+  &>*:not(:last-child) {
     margin-right: .5rem;
   }
 }

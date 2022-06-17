@@ -1,34 +1,35 @@
-import {getDarkMode,setDarkMode} from '../utils/preference';
+import { getDarkMode, setDarkMode } from '../utils/preference';
 
 export const TOGGLE_DARK_MODE = 'TOGGLE_DARK_MODE' as const;
 
 export const toggleDarkMode = () => ({
-    type: TOGGLE_DARK_MODE,
+  type: TOGGLE_DARK_MODE,
 });
 
 type DarkModeAction =
-    | ReturnType<typeof toggleDarkMode>
+  | ReturnType<typeof toggleDarkMode>
 
 export type DarkModeState = {
-    darkMode: boolean;
+  darkMode: boolean;
 }
 
 const initialState: DarkModeState = {
-    darkMode: getDarkMode(),
+  darkMode: getDarkMode(),
 };
 
 function darkMode(state: DarkModeState = initialState, action: DarkModeAction) {
-    switch (action.type) {
-        case TOGGLE_DARK_MODE:
-            const newDarkMode = !state.darkMode;
-            setDarkMode(newDarkMode);
-            return {
-                ...state,
-                darkMode: newDarkMode
-            };
-        default:
-            return state;
+  switch (action.type) {
+    case TOGGLE_DARK_MODE: {
+      const newDarkMode = !state.darkMode;
+      setDarkMode(newDarkMode);
+      return {
+        ...state,
+        darkMode: newDarkMode,
+      };
     }
+    default:
+      return state;
+  }
 }
 
 export default darkMode;
