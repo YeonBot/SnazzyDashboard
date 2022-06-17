@@ -43,8 +43,8 @@ function PreferenceModal({
                   tabIndex={0}
                   key={sidebarkey}
                   className={cx(
-                    'PreferenceModal__sidebar__item',
-                    { 'PreferenceModal__sidebar__item-selected': sidebarkey === selectedSideBarKey },
+                    styles.PreferenceModal__sidebar__item,
+                    sidebarkey === selectedSideBarKey && styles['PreferenceModal__sidebar__item-selected'],
                   )}
                   onClick={() => {
                     changeSideBarKey(sidebarkey);
@@ -63,7 +63,7 @@ function PreferenceModal({
               );
             })
           }
-          <span className={cx('PreferenceModal__sidebar__hr')}>
+          <span className={styles.PreferenceModal__sidebar__hr}>
             <hr />
           </span>
           <div className={styles.PreferenceModal__sidebar__title}>Favorite</div>
@@ -76,8 +76,8 @@ function PreferenceModal({
                   tabIndex={0}
                   key={sidebarkey}
                   className={cx(
-                    'PreferenceModal__sidebar__item',
-                    { 'PreferenceModal__sidebar__item-selected': sidebarkey === selectedSideBarKey },
+                    styles.PreferenceModal__sidebar__item,
+                    sidebarkey === selectedSideBarKey && styles['PreferenceModal__sidebar__item-selected'],
                   )}
                   onClick={() => {
                     changeSideBarKey(sidebarkey);
@@ -94,11 +94,11 @@ function PreferenceModal({
               );
             })
           }
-          <span className={cx('PreferenceModal__sidebar__hr')}>
+          <span className={styles.PreferenceModal__sidebar__hr}>
             <hr />
           </span>
-          <div className={cx('PreferenceModal__sidebar__darkmode')}>
-            <div className={cx('PreferenceModal__sidebar__darkmode__label')}>
+          <div className={styles.PreferenceModal__sidebar__darkmode}>
+            <div className={styles.PreferenceModal__sidebar__darkmode__label}>
               <FontAwesomeIcon icon={SIDEBAR.DARKMODE.ICON} size="lg" />
               {SIDEBAR.DARKMODE.LABEL}
             </div>
