@@ -46,7 +46,7 @@ export default function TodoTask({
             type="checkbox"
             className={styles.todoTask__checkbox}
             checked={!!checked}
-            onClick={handleUpdateClick}
+            onChange={handleUpdateClick}
           />
         </Label>
       </FormGroup>
