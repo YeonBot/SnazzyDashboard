@@ -1,16 +1,18 @@
 {
   "version": "1.0.0",
-  "name": "Snazzy Dashboard",
-  "description": "Snazzy Dashboard Page",
-  "manifest_version": 2,
-  "browser_action": {
-    "default_icon": "icon.png",
+  "name": "Book Mark",
+  "description": "Book Makr - index",
+  "manifest_version": 3,
+  "action": {
+    "default_icon": "logo.png",
     "default_title": "Open the popup"
   },
   "permissions": [
     "bookmarks"
   ],
-  "content_security_policy": "default-src 'self'; script-src 'self' 'unsafe-eval';script-src-elem 'self' 'sha256-cy6Ch+NGs64LTXQVarE3Jef/XJm9TbRBd6EKcEEIOUw=' 'unsafe-eval'; connect-src https://faviconico.run.goorm.io https://github-calendar.now.sh; style-src * 'unsafe-inline' 'self' blob:; img-src * data:; font-src https://fonts.gstatic.com",
+  "content_security_policy": {
+    "extension_pages": "default-src 'self'; script-src 'self';script-src-elem 'self' 'sha256-cy6Ch+NGs64LTXQVarE3Jef/XJm9TbRBd6EKcEEIOUw='; connect-src https://faviconico.run.goorm.io https://github-contributions-api.jogruber.de/; style-src * 'unsafe-inline' 'self' blob:; img-src * data:; font-src https://fonts.gstatic.com"
+  },
   "chrome_url_overrides": {
     "newtab": "index.html"
   }

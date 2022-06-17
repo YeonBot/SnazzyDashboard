@@ -62,11 +62,11 @@ class Github extends Component<Props, States> {
   }
 
   componentDidMount() {
-    Github.scrollEndPoint();
+    // Github.scrollEndPoint();
   }
 
   componentDidUpdate() {
-    Github.scrollEndPoint();
+    // Github.scrollEndPoint();
   }
 
   handleKeyPress(e: any) {
