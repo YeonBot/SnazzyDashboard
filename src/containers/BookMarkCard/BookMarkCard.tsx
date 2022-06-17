@@ -43,13 +43,14 @@ class BookMarkCard extends Component<any, State> {
   componentDidMount() {
     getTree().then((tree) => {
       this.setState(() => ({
-        bookmarkBar: tree?.children?.[0]?.children && [],
+        bookmarkBar: tree?.children?.[0]?.children || [],
       }));
     });
   }
 
   onClickDir(id: number) {
     const { bookmarkBar } = this.state;
+
     const selectedDir = this.getDirById(bookmarkBar, Number(id));
 
     this.setState(() => ({
@@ -62,14 +63,25 @@ class BookMarkCard extends Component<any, State> {
   }
 
   getDirById(bookmarkBar: any, id: number): any {
-    for (let i = bookmarkBar.length - 1; i >= 0; i -= 1) {
-      if (Number(bookmarkBar[i].id) === id) {
-        this.setState(() => ({
-          selectedDirTitle: bookmarkBar[i].title,
-        }));
-        return bookmarkBar[i].children;
+    if (!bookmarkBar) {
+      return null;
+    }
+    const bookmark = bookmarkBar.find((bm: any) => Number(bm.id) === id);
+    if (bookmark) {
+      this.setState(() => ({
+        selectedDirTitle: bookmark.title,
+      }));
+      return bookmark.children;
+    }
+
+    for (let i = 0; i < bookmarkBar.length; i += 1) {
+      const ret = this.getDirById(bookmarkBar[i]?.children, id);
+
+      if (ret) {
+        return ret;
       }
     }
+
     return null;
   }
 

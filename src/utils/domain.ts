@@ -5,13 +5,18 @@ export const DEFAULT_URL = '/images/defaultSiteFIle.png';
 
 export const getTitleFronDomain = async (domain: string) => {
   const forTitle = domain.split('://')[1];
-  if (!forTitle) {
-    return '';
-  }
+  return forTitle || '';
+  // if (!forTitle) {
+  //   return '';
+  // }
+  // let ret = null;
+  // try {
+  //   ret = await axios.get(`https://title.mihir.ch/${forTitle}`);
+  // } catch (e) {
+  //   console.log('Failed fetch title', e);
+  // }
 
-  const { data } = await axios.get(`https://title.mihir.ch/${forTitle}`);
-
-  return data || forTitle;
+  // return ret?.data || forTitle;
 };
 
 export const validURLCheck = (domain: string) => {

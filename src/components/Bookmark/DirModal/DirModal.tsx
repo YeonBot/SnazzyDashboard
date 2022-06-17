@@ -47,6 +47,7 @@ function DirModal({
       isOpen={isOpen}
       toggle={toggle}
       centered
+      fade={false}
       className={styles.DirModal}
       backdropClassName={styles.DirModal__backdrop}
     >

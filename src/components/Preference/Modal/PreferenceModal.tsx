@@ -46,6 +46,10 @@ function PreferenceModal({
                     'PreferenceModal__sidebar__item',
                     { 'PreferenceModal__sidebar__item-selected': sidebarkey === selectedSideBarKey },
                   )}
+                  onClick={() => {
+                    changeSideBarKey(sidebarkey);
+                    changeComp(SIDEBAR.WIDGET[sidebarkey as keyof typeof SIDEBAR.WIDGET].COMP);
+                  }}
                   onKeyPress={() => {
                     changeSideBarKey(sidebarkey);
                     changeComp(SIDEBAR.WIDGET[sidebarkey as keyof typeof SIDEBAR.WIDGET].COMP);
@@ -75,6 +79,10 @@ function PreferenceModal({
                     'PreferenceModal__sidebar__item',
                     { 'PreferenceModal__sidebar__item-selected': sidebarkey === selectedSideBarKey },
                   )}
+                  onClick={() => {
+                    changeSideBarKey(sidebarkey);
+                    changeComp(SIDEBAR.FAVORITE[sidebarkey as keyof typeof SIDEBAR.FAVORITE].COMP);
+                  }}
                   onKeyPress={() => {
                     changeSideBarKey(sidebarkey);
                     changeComp(SIDEBAR.FAVORITE[sidebarkey as keyof typeof SIDEBAR.FAVORITE].COMP);

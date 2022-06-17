@@ -11,7 +11,7 @@ type Props = {
   url?: string,
   src?: string,
   propsTooltip?: string,
-  onClickFile?: () => void,
+  onClickFile?: (e: React.SyntheticEvent) => void,
 }
 
 function File({
@@ -47,7 +47,7 @@ function File({
   const tooltipId = `Tooltip-${Math.random().toString(36).substr(2, 5)}`;
 
   return (
-    <span role="button" tabIndex={0} onKeyPress={onClickFile}>
+    <span role="button" tabIndex={0} onClick={onClickFile} onKeyPress={onClickFile}>
       <a
         className={style.File}
         href={url}
@@ -73,7 +73,6 @@ function File({
               />
             )
         }
-
       </a>
       {title
         && (

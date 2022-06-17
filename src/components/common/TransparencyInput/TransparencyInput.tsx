@@ -7,11 +7,11 @@ type TransparencyInputProps = {
   value: string,
   placeholder: string,
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void,
-  onKeyDown: (event: React.KeyboardEvent<HTMLInputElement>) => void,
+  onKeyPress: (event: React.KeyboardEvent<HTMLInputElement>) => void,
 }
 
 function TransparencyInput({
-  value, placeholder, onChange, onKeyDown,
+  value, placeholder, onChange, onKeyPress,
 }: TransparencyInputProps): JSX.Element {
   return (
     <Input
@@ -19,7 +19,7 @@ function TransparencyInput({
       value={value}
       placeholder={placeholder}
       onChange={onChange}
-      onKeyDown={onKeyDown}
+      onKeyPress={onKeyPress}
     />
   );
 }

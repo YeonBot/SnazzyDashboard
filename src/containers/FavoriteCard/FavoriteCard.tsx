@@ -36,7 +36,8 @@ class FavoriteCard extends Component<Props, State> {
     this.toggle = this.toggle.bind(this);
   }
 
-  handleClickPreference() {
+  handleClickPreference(e: React.SyntheticEvent) {
+    e.preventDefault();
     this.toggle();
   }
 

@@ -27,7 +27,7 @@ export default function TodoAddInput({ addTodo }: TodoAddInputProps) {
       placeholder=" New todo"
       value={title}
       onChange={handleChange}
-      onKeyDown={handleKeyDown}
+      onKeyPress={handleKeyDown}
     />
   );
 }

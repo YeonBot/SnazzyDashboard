@@ -36,7 +36,7 @@ export default function TodoTask({
       className={styles.todoTask}
       onMouseOver={() => setHovering(true)}
       onFocus={() => setHovering(true)}
-      onMouseOut={() => setHovering(false)}
+      onMouseLeave={() => setHovering(false)}
       onBlur={() => setHovering(false)}
     >
       <FormGroup check>

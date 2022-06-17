@@ -13,18 +13,20 @@ type Props = {
 }
 
 function Directory({
-  title, innerDir, onClickDir, id,
+  title, innerDir, id, onClickDir,
 }: Props) {
   const [srcList, setSrcList] = useState<string[]>([]);
 
   const setInnerIconToDir = () => {
-    const getSrcPromises = innerDir.filter((dir, idx) => idx < 16).map((dir) => {
-      if (dir.url) {
-        return getFaviconUrlFromDomain(dir.url);
-      }
-      // return directory image ..
-      return '/images/macGenericFolderIcon.png';
-    });
+    const getSrcPromises = innerDir
+      .slice(0, 16)
+      .map((dir) => {
+        if (dir.url) {
+          return getFaviconUrlFromDomain(dir.url);
+        }
+        // return directory image ..
+        return '/images/macGenericFolderIcon.png';
+      });
 
     Promise.all(getSrcPromises)
       .then((srcRet: string[]) => {
@@ -40,18 +42,17 @@ function Directory({
   }, []);
 
   return (
-    <div role="button" tabIndex={0} onKeyPress={() => onClickDir(id)}>
+    <div role="button" tabIndex={0} onClick={() => onClickDir(id)} onKeyPress={() => onClickDir(id)}>
       <div className={style.Directory}>
-        {srcList.map((src) => (src === DEFAULT_URL
-          ? <Avatar key={`${src}`} className={style.Directory__src} size="0.85rem" name={title?.charAt(0)} />
-          : <img key={`${src}`} className={style.Directory__src} src={src} alt="empty" />))}
+        {srcList.map((src, idx) => (src === DEFAULT_URL
+          ? <Avatar key={innerDir[idx].id} className={style.Directory__src} size="0.85rem" name={title?.charAt(0)} />
+          : <img key={innerDir[idx].id} referrerPolicy="no-referrer" className={style.Directory__src} src={src} alt=" " />))}
       </div>
 
       <div className={style.Directory__title}>
         {title}
       </div>
     </div>
-
   );
 }
 
