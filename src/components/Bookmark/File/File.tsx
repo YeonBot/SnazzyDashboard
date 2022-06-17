@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Avatar from 'react-avatar';
 import ReactTooltip from 'react-tooltip';
 
-import { DEFAULT_URL, getFaviconUrlFromDomain, getTitleFronDomain } from '../../../utils/domain';
+import { DEFAULT_URL, getFaviconUrlFromDomain, getTitleFronDomain } from '@utils/domain';
 
 import style from './File.module.scss';
 

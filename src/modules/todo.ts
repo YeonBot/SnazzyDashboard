@@ -1,5 +1,5 @@
-import { getTodoList, updateTodoList } from '../utils/preference';
-import { Todo as TodoType } from '../common/type';
+import { getTodoList, updateTodoList } from '@utils/preference';
+import { Todo as TodoType } from '@common/type';
 
 // constant
 export const ADD_TODO = 'ADD_TODO' as const;

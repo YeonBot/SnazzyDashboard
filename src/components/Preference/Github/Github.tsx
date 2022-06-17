@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Input, FormGroup } from 'reactstrap';
 
-import GithubUsername from '../GithubUsername';
+import GithubUsername from '@components/preference/GithubUsername';
 
 type Props = {
   visible: boolean,

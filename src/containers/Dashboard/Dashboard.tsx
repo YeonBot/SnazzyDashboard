@@ -6,9 +6,9 @@ import {
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
-import SideBarBody from '../sideBar/SideBarBody';
-import BookMarkCard from '../BookMarkCard';
-import FavoriteCard from '../FavoriteCard';
+import SideBarBody from '@containers/sideBar/SideBarBody';
+import BookMarkCard from '@containers/BookMarkCard';
+import FavoriteCard from '@containers/FavoriteCard';
 
 import style from './Dashboard.module.scss';
 

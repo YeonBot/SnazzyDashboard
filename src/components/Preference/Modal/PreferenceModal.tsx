@@ -5,7 +5,7 @@ import {
 import cx from 'classnames';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import { SIDEBAR } from '../../../constants/preference';
+import { SIDEBAR } from '@constants/preference';
 
 import styles from './PreferenceModal.module.scss';
 

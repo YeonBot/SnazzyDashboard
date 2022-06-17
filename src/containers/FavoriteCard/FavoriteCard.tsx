@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { returntypeof } from 'react-redux-typescript';
 
-import PreferenceModal from '../../components/preference/Modal';
-import File from '../../components/bookmark/File';
+import PreferenceModal from '@components/preference/Modal';
+import File from '@components/bookmark/File';
+import { toggleDarkMode } from '@modules/darkmode';
 
 import style from './FavoriteCard.module.scss';
-import { toggleDarkMode } from '../../modules/darkmode';
 
 type State = {
   isOpen: boolean,

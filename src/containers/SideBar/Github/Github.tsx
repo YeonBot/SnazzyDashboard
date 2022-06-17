@@ -4,11 +4,11 @@ import { Input, Button } from 'reactstrap';
 
 import { returntypeof } from 'react-redux-typescript';
 import { connect } from 'react-redux';
-import SideBarCard from '../../../components/widget/Card';
+import SideBarCard from '@components/widget/Card';
+import { changeUsername } from '@modules/github';
+import { RootState } from '@modules/index';
 
 import style from './Github.module.scss';
-import { RootState } from '../../../modules';
-import { changeUsername } from '../../../modules/github';
 
 const mapStateToProps = (state: RootState) => ({
   username: state.github.username,

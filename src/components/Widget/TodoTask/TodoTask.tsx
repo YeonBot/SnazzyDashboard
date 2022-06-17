@@ -3,7 +3,7 @@ import { FormGroup, Label, Input } from 'reactstrap';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimesCircle } from '@fortawesome/free-regular-svg-icons';
-import { Todo as TodoType } from '../../../common/type';
+import { Todo as TodoType } from '@common/type';
 
 import styles from './TodoTask.module.scss';
 

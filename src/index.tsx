@@ -7,8 +7,8 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { createStore, compose } from 'redux';
 
-import App from './containers/App';
-import rootReducer from './modules/index';
+import App from '@containers/App';
+import rootReducer from '@modules/index';
 
 declare global {
   // eslint-disable-next-line no-unused-vars

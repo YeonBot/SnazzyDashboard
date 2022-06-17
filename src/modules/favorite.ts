@@ -1,4 +1,4 @@
-import { getFavoriteList, setFavoriteList, updateFavoriteList } from '../utils/preference';
+import { getFavoriteList, setFavoriteList, updateFavoriteList } from '@utils/preference';
 
 export const SET_FAVORITE_ITEM = 'SET_FAVORITE_ITEM' as const;
 export const DELETE_FAVORITE_ITEM = 'DELETE_FAVORITE_ITEM' as const;
