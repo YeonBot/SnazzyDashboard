@@ -1,5 +1,5 @@
 .Dashboard {
-  width :100%;
+  width: 100%;
   height: 100%;
   background-image: var(--background-image);
   background-repeat: no-repeat;
@@ -16,18 +16,18 @@
   }
 
   &__container {
-    padding:2.5rem 0;
+    padding: 2.5rem 0;
     height: 90%;
     margin: auto;
 
     &__bottom {
-      padding:0 0 2.5rem 0;
+      padding: 0 0 2.5rem 0;
       margin: auto;
     }
   }
 
   &__row {
-    height:100%;
+    height: 100%;
     display: flex;
     flex-direction: row;
 
@@ -43,6 +43,7 @@
         top: 10px;
         opacity: 5%;
       }
+
       &__openBtn:hover {
         opacity: 40%;
       }
@@ -74,7 +75,8 @@
     &__bottom {
       width: fit-content;
       margin: auto;
-      & > *:first-child {
+
+      &>*:first-child {
         padding: 0;
       }
     }

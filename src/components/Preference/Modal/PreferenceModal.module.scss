@@ -1,6 +1,7 @@
 .PreferenceModal {
   align-self: center;
-  & > * {
+
+  &>* {
     background-color: inherit;
     border: none;
     align-items: center;
@@ -29,8 +30,8 @@
     flex-wrap: wrap;
     align-content: flex-start;
 
-    & > *:nth-child(4n+0){
-      & > * {
+    &>*:nth-child(4n+0) {
+      &>* {
         margin-right: 0;
       }
     }
@@ -77,7 +78,8 @@
     &__hr {
       width: 100%;
       padding: 15px;
-      & > * {
+
+      &>* {
         height: 1px;
         margin: 0;
       }
@@ -92,6 +94,7 @@
       justify-content: space-between;
       padding: 5px 15px;
       font-weight: 600;
+
       &__label {
         font-size: 14px;
       }

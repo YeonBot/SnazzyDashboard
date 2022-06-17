@@ -1,22 +1,22 @@
 .todoTask {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 3px 0 2px 0;
+
+  &__checkbox {
+    position: relative;
+    top: -3px;
+  }
+
+  &__title {
+    word-wrap: break-word;
+    width: calc(288px - 40px);
+  }
+
+  &__more {
     display: flex;
-    align-items: flex-start;
-    flex-direction: row;
-    justify-content: space-between;
-    padding: 3px 0 2px 0;
-
-    &__checkbox {
-        position: relative;
-        top: -3px;
-    }
-
-    &__title {
-        word-wrap: break-word;
-        width: calc(288px - 40px);
-    }
-
-    &__more {
-        display: flex;
-        width: 1rem;
-    }
+    width: 1rem;
+  }
 }
