@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import Clock from '../../../components/Widget/Clock';
+import Clock from '../../../components/widget/Clock';
 
 type Props = {};
 type State = {

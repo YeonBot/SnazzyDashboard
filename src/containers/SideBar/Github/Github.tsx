@@ -4,7 +4,7 @@ import { Input, Button } from 'reactstrap';
 
 import { returntypeof } from 'react-redux-typescript';
 import { connect } from 'react-redux';
-import SideBarCard from '../../../components/Widget/Card';
+import SideBarCard from '../../../components/widget/Card';
 
 import style from './Github.module.scss';
 import { RootState } from '../../../modules';

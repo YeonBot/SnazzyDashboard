@@ -3,8 +3,8 @@ import { Button, Modal, ModalBody } from 'reactstrap';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
-import Directory from '../Directory';
-import File from '../File';
+import File from '@components/bookmark/File';
+import Directory from '@components/bookmark/Directory';
 
 import styles from './DirModal.module.scss';
 

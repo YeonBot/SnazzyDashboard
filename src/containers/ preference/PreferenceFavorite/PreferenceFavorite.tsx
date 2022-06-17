@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { returntypeof } from 'react-redux-typescript';
 
-import Favorite from '../../../components/Preference/Favorite';
+import Favorite from '../../../components/preference/Favorite';
 import { setFavoriteItem, deleteFavoriteItem } from '../../../modules/favorite';
 
 import { RootState } from '../../../modules';

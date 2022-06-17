@@ -3,10 +3,10 @@ import {
   faClock, faMoon, faStar, faCheckSquare,
 } from '@fortawesome/free-regular-svg-icons';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
-import PreferenceClock from '../containers/Preference/PreferenceClock';
-import PreferenceGithub from '../containers/Preference/PreferenceGithub';
-import PreferenceFavorite from '../containers/Preference/PreferenceFavorite';
-import PreferenceTodo from '../containers/Preference/PreferenceTodo';
+import PreferenceClock from '../containers/ preference/PreferenceClock';
+import PreferenceGithub from '../containers/ preference/PreferenceGithub';
+import PreferenceFavorite from '../containers/ preference/PreferenceFavorite';
+import PreferenceTodo from '../containers/ preference/PreferenceTodo';
 
 export const SIDEBAR = {
   WIDGET: {

@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 
 import { returntypeof } from 'react-redux-typescript';
 import { connect } from 'react-redux';
-import SideBarCard from '../../../components/Widget/Card';
-import TodoAddInput from '../../../components/Widget/TodoAddInput';
-import TodoTask from '../../../components/Widget/TodoTask';
+import SideBarCard from '../../../components/widget/Card';
+import TodoAddInput from '../../../components/widget/TodoAddInput';
+import TodoTask from '../../../components/widget/TodoTask';
 
 import { RootState } from '../../../modules';
 import { addTodo, updateTodo, deleteTodo } from '../../../modules/todo';
