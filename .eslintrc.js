@@ -48,12 +48,14 @@ module.exports = {
         },
       },
     ],
+    'import/no-extraneous-dependencies': 0,
   },
   settings: {
+    'import/parsers': {
+      '@typescript-eslint/parser': ['.ts', '.tsx'],
+    },
     'import/resolver': {
-      node: {
-        extensions: ['.ts', '.tsx', '.js', '.jsx'],
-      },
+      typescript: './tsconfig.json',
     },
   },
 };
