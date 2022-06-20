@@ -20,7 +20,8 @@ function File({
   const [imageSrc, setSrc] = useState<string>('');
   const [tooltip, setTooltip] = useState<string>('');
 
-  const setFileSrc = () => {
+  useEffect(() => {
+
     if (url) {
       getFaviconUrlFromDomain(url)
         .then((faviconUrl) => {
@@ -30,10 +31,7 @@ function File({
     if (src) {
       setSrc(src);
     }
-  };
 
-  useEffect(() => {
-    setFileSrc();
     if (url && !title) {
       getTitleFronDomain(url).then((serviceTitle) => {
         setTooltip(serviceTitle);
@@ -42,7 +40,7 @@ function File({
     if (propsTooltip) {
       setTooltip(propsTooltip);
     }
-  }, []);
+  }, [propsTooltip, src, title, url]);
 
   const tooltipId = `Tooltip-${Math.random().toString(36).substr(2, 5)}`;
 

@@ -17,7 +17,7 @@ function Directory({
 }: Props) {
   const [srcList, setSrcList] = useState<string[]>([]);
 
-  const setInnerIconToDir = () => {
+  useEffect(() => {
     const getSrcPromises = innerDir
       .slice(0, 16)
       .map((dir) => {
@@ -35,11 +35,7 @@ function Directory({
       .catch((err) => {
         console.log(err);
       });
-  };
-
-  useEffect(() => {
-    setInnerIconToDir();
-  }, []);
+  }, [innerDir]);
 
   return (
     <div role="button" tabIndex={0} onClick={() => onClickDir(id)} onKeyPress={() => onClickDir(id)}>
